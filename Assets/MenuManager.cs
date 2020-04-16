@@ -69,11 +69,11 @@ public class MenuManager : MonoBehaviour
         Debug.Log("Permission result: " + permission + ", Taking Photo");
     }
 
-    /*public void Screenshot()
+    public void Screenshot()
     {
         Debug.Log("Are you taking a screenshot?");
 
-       // NativeGallery.SaveImageToGallery(byte[] mediaBytes, string album, string filename, MediaSaveCallback callback = null);
+       //NativeGallery.SaveImageToGallery(byte[] mediaBytes, string album, string filename, MediaSaveCallback callback = null);
 
         StartCoroutine(TakeScreenshotAndSave());
     }
@@ -92,5 +92,5 @@ public class MenuManager : MonoBehaviour
         // To avoid memory leaks
         Destroy(ss);
     }
-    */
+    
 }

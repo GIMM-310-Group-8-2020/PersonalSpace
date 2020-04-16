@@ -17,8 +17,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.RawImage
     - UnityEngine.UI.Text
-    com.unity.multiplayer-hlapi.Runtime.dll:
-    - UnityEngine.Networking.NetworkCallbacks
   sceneClasses:
     Assets/Scenes/Menu.unity:
     - Class: 1
@@ -40,23 +38,23 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11218}
+      Script: {instanceID: 11222}
     - Class: 114
-      Script: {instanceID: 11478}
+      Script: {instanceID: 11482}
     - Class: 114
-      Script: {instanceID: 11532}
+      Script: {instanceID: 11536}
     - Class: 114
-      Script: {instanceID: 12050}
+      Script: {instanceID: 12060}
     - Class: 114
-      Script: {instanceID: 12222}
+      Script: {instanceID: 12234}
     - Class: 114
-      Script: {instanceID: 12612}
+      Script: {instanceID: 12628}
     - Class: 114
-      Script: {instanceID: 12638}
+      Script: {instanceID: 12654}
     - Class: 114
-      Script: {instanceID: 13248}
+      Script: {instanceID: 13268}
     - Class: 114
-      Script: {instanceID: 13760}
+      Script: {instanceID: 13780}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
