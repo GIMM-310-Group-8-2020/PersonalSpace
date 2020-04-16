@@ -27,5 +27,7 @@ public class MenuManager : MonoBehaviour
 		}, "Select a PNG image", "image/png");
 
 		Debug.Log("Permission result: " + permission);
+
+        Debug.Log("Hello");
 	}
 }
