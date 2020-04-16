@@ -576,7 +576,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPicture: {fileID: 269980229}
-  grabbedTexture: {fileID: 2800000, guid: 260f5f218a40e49c0a0a55c499a121a8, type: 3}
 --- !u!4 &1448445876
 Transform:
   m_ObjectHideFlags: 0
