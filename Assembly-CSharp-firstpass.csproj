@@ -62,12 +62,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Plugins\NativeCamera\Android\NCCallbackHelper.cs" />
+    <Compile Include="Assets\Plugins\NativeCamera\Android\NCCameraCallbackAndroid.cs" />
+    <Compile Include="Assets\Plugins\NativeCamera\Android\NCPermissionCallbackAndroid.cs" />
+    <Compile Include="Assets\Plugins\NativeCamera\NativeCamera.cs" />
+    <Compile Include="Assets\Plugins\NativeCamera\iOS\NCCameraCallbackiOS.cs" />
     <Compile Include="Assets\Plugins\NativeGallery\Android\NGCallbackHelper.cs" />
     <Compile Include="Assets\Plugins\NativeGallery\Android\NGMediaReceiveCallbackAndroid.cs" />
     <Compile Include="Assets\Plugins\NativeGallery\Android\NGPermissionCallbackAndroid.cs" />
     <Compile Include="Assets\Plugins\NativeGallery\NativeGallery.cs" />
     <Compile Include="Assets\Plugins\NativeGallery\iOS\NGMediaReceiveCallbackiOS.cs" />
     <Compile Include="Assets\Plugins\NativeGallery\iOS\NGMediaSaveCallbackiOS.cs" />
+    <None Include="Assets\Plugins\NativeCamera\README.txt" />
     <None Include="Assets\Plugins\NativeGallery\README.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/hanwi/OneDrive/Desktop/Personal Space/PersonalSpace/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
