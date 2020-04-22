@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public Camera firstPersonCamera;
     public ScoreboardController scoreboard;
+    public SnakeController snakeController;
 
     void Start()
     {
@@ -23,10 +24,12 @@ public class GameManager : MonoBehaviour
             return;
         }
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
-       /* if (Input.touchCount == 1)
-        {
-            Debug.Log("We touchin");
-        }*/
+        /* if (Input.touchCount == 1)
+         {
+             Debug.Log("We touchin");
+         }*/
+        ProcessTouches();
+        scoreboard.SetScore(snakeController.GetLength());
     }
 
     void QuitOnConnectionErrors()
@@ -41,7 +44,7 @@ public class GameManager : MonoBehaviour
             // https://developers.google.com/ar/reference/unity/namespace/GoogleARCore
             StartCoroutine(CodelabUtils.ToastAndExit("ARCore encountered a problem connecting. Please restart the app.", 5));
         }
-        ProcessTouches();
+        
     }
 
     void ProcessTouches()
@@ -54,13 +57,12 @@ public class GameManager : MonoBehaviour
         }
 
         TrackableHit hit;
-        TrackableHitFlags raycastFilter = 
-           TrackableHitFlags.PlaneWithinBounds |
-            TrackableHitFlags.PlaneWithinPolygon;
+        TrackableHitFlags raycastFilter = TrackableHitFlags.PlaneWithinBounds | TrackableHitFlags.PlaneWithinPolygon;
+        Debug.Log(touch.position.x + " + " + touch.position.y);
 
         if (Frame.Raycast(touch.position.x, touch.position.y, raycastFilter, out hit))
         {
-            Debug.Log("are we here??????");
+            //Debug.Log("are we here??????");
             SetSelectedPlane(hit.Trackable as DetectedPlane);
         }
     }
@@ -69,5 +71,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Selected plane centered at " + selectedPlane.CenterPose.position);
         scoreboard.SetSelectedPlane(selectedPlane);
+        snakeController.SetPlane(selectedPlane);
+        GetComponent<FoodController>().SetSelectedPlane(selectedPlane);
     }
 }

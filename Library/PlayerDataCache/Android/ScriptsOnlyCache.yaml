@@ -1,6 +1,8 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - FoodController
+    - FoodMotion
     - GameManager
     - GlobalScalable
     - GoogleARCore.ARCoreBackgroundRenderer
@@ -12,6 +14,8 @@ ScriptsOnlyBuild:
     - GoogleARCore.Examples.Common.DetectedPlaneVisualizer
     - MenuManager
     - ScoreboardController
+    - Slithering
+    - SnakeController
     Unity.Mobile.AndroidLogcat.Editor.dll:
     - Unity.Android.Logcat.AndroidLogcatConsoleWindow
     - Unity.Android.Logcat.AndroidLogcatManager
@@ -32,8 +36,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.RawImage
     - UnityEngine.UI.Text
-    com.unity.multiplayer-hlapi.Runtime.dll:
-    - UnityEngine.Networking.NetworkCallbacks
   sceneClasses:
     Assets/Scenes/ARSection.unity:
     - Class: 1
@@ -54,7 +56,15 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
     - Class: 65
+      Script: {instanceID: 0}
+    - Class: 90
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 102
       Script: {instanceID: 0}
@@ -63,31 +73,39 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11966}
+      Script: {instanceID: 11450}
     - Class: 114
-      Script: {instanceID: 11976}
+      Script: {instanceID: 11988}
     - Class: 114
-      Script: {instanceID: 12060}
+      Script: {instanceID: 11998}
     - Class: 114
-      Script: {instanceID: 12282}
+      Script: {instanceID: 12084}
     - Class: 114
-      Script: {instanceID: 12938}
+      Script: {instanceID: 12160}
     - Class: 114
-      Script: {instanceID: 13028}
+      Script: {instanceID: 12316}
     - Class: 114
-      Script: {instanceID: 13272}
+      Script: {instanceID: 12352}
     - Class: 114
-      Script: {instanceID: 13376}
+      Script: {instanceID: 12966}
     - Class: 114
-      Script: {instanceID: 13430}
+      Script: {instanceID: 12990}
     - Class: 114
-      Script: {instanceID: 13780}
+      Script: {instanceID: 13018}
     - Class: 114
-      Script: {instanceID: 17120}
+      Script: {instanceID: 13088}
     - Class: 114
-      Script: {instanceID: 17182}
+      Script: {instanceID: 13338}
     - Class: 114
-      Script: {instanceID: 20006}
+      Script: {instanceID: 13446}
+    - Class: 114
+      Script: {instanceID: 13502}
+    - Class: 114
+      Script: {instanceID: 13862}
+    - Class: 114
+      Script: {instanceID: 18132}
+    - Class: 114
+      Script: {instanceID: 18712}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -118,21 +136,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11222}
     - Class: 114
-      Script: {instanceID: 11482}
+      Script: {instanceID: 11496}
     - Class: 114
-      Script: {instanceID: 11536}
+      Script: {instanceID: 11550}
     - Class: 114
-      Script: {instanceID: 12060}
+      Script: {instanceID: 12084}
     - Class: 114
-      Script: {instanceID: 12234}
+      Script: {instanceID: 12268}
     - Class: 114
-      Script: {instanceID: 12628}
+      Script: {instanceID: 12674}
     - Class: 114
-      Script: {instanceID: 12654}
+      Script: {instanceID: 12700}
     - Class: 114
-      Script: {instanceID: 13268}
+      Script: {instanceID: 13334}
     - Class: 114
-      Script: {instanceID: 13780}
+      Script: {instanceID: 13862}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -156,6 +174,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: CanvasScaler
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlaneRenderer
   - hash:
       serializedVersion: 2
       Hash: 3c08375166df118bd1801438fc36b92f
@@ -210,6 +234,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.XR.LegacyInputHelpers.dll
     namespaceName: UnityEngine.XR.LegacyInputHelpers
     className: ArmModel
+  - hash:
+      serializedVersion: 2
+      Hash: cdcc8f55340b13ca0ed94666e9d2bc3a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ScoreboardController
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -458,6 +488,12 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
+      Hash: f6335d1228fb4609dc865d0a1492a8f1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GlobalScalable
+  - hash:
+      serializedVersion: 2
       Hash: 0451019579614cc079b33f5be5df7244
     assemblyName: Assembly-CSharp.dll
     namespaceName: GoogleARCore.Examples.CloudAnchors
@@ -486,6 +522,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: GoogleARCore
     className: ARCoreBackgroundRenderer
+  - hash:
+      serializedVersion: 2
+      Hash: 86c791539d2cd1138a5259d8fe447f07
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Slithering
   - hash:
       serializedVersion: 2
       Hash: b3ab2106268377ffe25dd18ac23dca28
@@ -650,6 +692,12 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FoodMotion
+  - hash:
+      serializedVersion: 2
       Hash: e1300922cc039f41ab46a47f4cb05898
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -678,6 +726,12 @@ ScriptsOnlyBuild:
     assemblyName: com.unity.multiplayer-hlapi.Runtime.dll
     namespaceName: UnityEngine.Networking
     className: NetworkMigrationManager
+  - hash:
+      serializedVersion: 2
+      Hash: 2d38872314165590afa4543161ea842e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameManager
   - hash:
       serializedVersion: 2
       Hash: c1933cc0a2f4ff6eb13333347497beb3
@@ -926,40 +980,22 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 32c76abc5990fea8dbf490eddb2401c2
+      Hash: 726c52621299b0d5a8694605bceedb1b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: GameManager
+    className: SnakeController
+  - hash:
+      serializedVersion: 2
+      Hash: 2602d22622eade22f59057990d13b793
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FoodController
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: PlaneRenderer
-  - hash:
-      serializedVersion: 2
-      Hash: f6335d1228fb4609dc865d0a1492a8f1
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: GlobalScalable
-  - hash:
-      serializedVersion: 2
-      Hash: 86c791539d2cd1138a5259d8fe447f07
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Slithering
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: FoodMotion
-  - hash:
-      serializedVersion: 2
-      Hash: cdcc8f55340b13ca0ed94666e9d2bc3a
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ScoreboardController
+    className: FoodConsumer
   platform: 13
   scenePathNames:
   - Assets/Scenes/Menu.unity
