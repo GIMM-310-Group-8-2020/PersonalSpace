@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using GoogleARCore;
 
 public class GameManager : MonoBehaviour
@@ -8,6 +9,12 @@ public class GameManager : MonoBehaviour
     public Camera firstPersonCamera;
     public ScoreboardController scoreboard;
     public SnakeController snakeController;
+    public PersonController personController;
+    public GameObject center;
+    public GameObject person;
+    public Text mainText;
+
+    private bool planeSelected = false;
 
     void Start()
     {
@@ -30,6 +37,13 @@ public class GameManager : MonoBehaviour
          }*/
         ProcessTouches();
         scoreboard.SetScore(snakeController.GetLength());
+        
+        if (planeSelected)
+        {
+            center.transform.position = new Vector3(firstPersonCamera.transform.position.x, person.transform.position.y, firstPersonCamera.transform.position.z);
+            CalculateDistance();
+        }
+        
     }
 
     void QuitOnConnectionErrors()
@@ -73,5 +87,24 @@ public class GameManager : MonoBehaviour
         scoreboard.SetSelectedPlane(selectedPlane);
         snakeController.SetPlane(selectedPlane);
         GetComponent<FoodController>().SetSelectedPlane(selectedPlane);
+        personController.SetSelectedPlane(selectedPlane);
+        planeSelected = true;
+    }
+
+    void CalculateDistance()
+    {
+        float dist = Vector3.Distance(person.transform.position, center.transform.position);
+        if (dist < 0.5)
+        {
+            mainText.text = "Close";
+        }
+        else if (dist > 0.5 && dist < 1.0)
+        {
+            mainText.text = "Near";
+        }
+        else
+        {
+            mainText.text = "Far";
+        }
     }
 }
