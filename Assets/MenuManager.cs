@@ -7,6 +7,19 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     public RawImage targetPicture;
+    public RawImage dropDownMenu;
+    public RawImage backgroundImage;
+
+    public float dropdownSpeed = 1f;
+
+    private Transform dropmenuPos;
+    private Transform backgroundPos;
+
+
+    private void Start()
+    {
+        backgroundPos = backgroundImage.GetComponent<Transform>();
+    }
 
     public void GetPicture()
     {
@@ -94,9 +107,42 @@ public class MenuManager : MonoBehaviour
         Destroy(ss);
     }
 
-    public void NextScene()
+    public void MenuDrop()
+    {
+        //Get current transform of the Drop Down Menu
+        dropmenuPos = dropDownMenu.GetComponent<Transform>();
+
+        //Get starting position for the Drop Down Menu and position of the background
+        Vector2 startPos = dropmenuPos.localPosition;
+        Vector2 finalPos = backgroundPos.localPosition;
+
+        Debug.Log("Starting Position: " + startPos + "/n Final Position: " + finalPos);
+
+        dropDownMenu.transform.localPosition = finalPos;
+
+       // dropDownMenu.transform.position = Vector2.Lerp(startPos, finalPos, 1);
+
+    }
+
+    public void NextScene(string name)
+    {
+        //Check which scene to load
+        switch(name)
+        {
+            case "ARSection":
+                SceneManager.LoadScene("ARSection");
+                break;
+
+            case "Character Customization":
+                SceneManager.LoadScene("CharacterCustomization");
+                Debug.Log("Character Customization Button Clicked");
+                break;
+        }
+    }
+
+    /*public void NextScene()
     {
         SceneManager.LoadScene("ARSection");
-    }
+    }*/
     
 }
