@@ -129,8 +129,16 @@ public class MenuManager : MonoBehaviour
         //Check which scene to load
         switch(name)
         {
+            case "Menu":
+                SceneManager.LoadScene("Menu");
+                break;
+
             case "ARSection":
                 SceneManager.LoadScene("ARSection");
+                break;
+
+            case "Upload Pic":
+                SceneManager.LoadScene("UploadPicOrNotSection");
                 break;
 
             case "Character Customization":
