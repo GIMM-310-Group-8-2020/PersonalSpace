@@ -106,9 +106,13 @@ public class GameManager : MonoBehaviour
         {
             mainText.text = "Near";
         }
-        else
+        else if (dist > 1.0 && dist < 1.5)
         {
             mainText.text = "Far";
+        }
+        else
+        {
+            mainText.text = "Very Far";
         }
     }
 }
