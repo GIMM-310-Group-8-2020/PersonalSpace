@@ -29,15 +29,21 @@ public class PersonController : MonoBehaviour
             detectedPlane = detectedPlane.SubsumedBy;
         }
 
-        // Make the scoreboard face the viewer.
-        transform.LookAt(firstPersonCamera.transform);
+
+
+        // Make the person face the viewer.
+        Vector3 targetPostition = new Vector3(firstPersonCamera.transform.position.x,
+                                       this.transform.position.y,
+                                       firstPersonCamera.transform.position.z);
+        this.transform.LookAt(targetPostition);
 
         // Move the position to stay consistent with the plane.
-        transform.position = new Vector3(detectedPlane.CenterPose.position.x, detectedPlane.CenterPose.position.y, detectedPlane.CenterPose.position.z);
+
     }
     public void SetSelectedPlane(DetectedPlane detectedPlane)
     {
         this.detectedPlane = detectedPlane;
         //CreateAnchor();
+        transform.position = new Vector3(detectedPlane.CenterPose.position.x, detectedPlane.CenterPose.position.y, detectedPlane.CenterPose.position.z);
     }
 }

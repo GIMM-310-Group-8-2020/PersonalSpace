@@ -18,6 +18,8 @@ ScriptsOnlyBuild:
     - ScoreboardController
     - Slithering
     - SnakeController
+    Unity.Mobile.AndroidLogcat.Editor.dll:
+    - Unity.Android.Logcat.AndroidLogcatManager
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.TestRunner.dll:
@@ -35,8 +37,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.RawImage
     - UnityEngine.UI.Text
-    com.unity.multiplayer-hlapi.Runtime.dll:
-    - UnityEngine.Networking.NetworkCallbacks
   sceneClasses:
     Assets/Scenes/ARSection.unity:
     - Class: 1
@@ -74,47 +74,47 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 13484}
+      Script: {instanceID: 13446}
     - Class: 114
-      Script: {instanceID: 13608}
+      Script: {instanceID: 13570}
     - Class: 114
-      Script: {instanceID: 13748}
+      Script: {instanceID: 13710}
     - Class: 114
-      Script: {instanceID: 13808}
+      Script: {instanceID: 13770}
     - Class: 114
-      Script: {instanceID: 13848}
+      Script: {instanceID: 13810}
     - Class: 114
-      Script: {instanceID: 13992}
+      Script: {instanceID: 13954}
     - Class: 114
-      Script: {instanceID: 14020}
+      Script: {instanceID: 13982}
     - Class: 114
-      Script: {instanceID: 14088}
+      Script: {instanceID: 14050}
     - Class: 114
-      Script: {instanceID: 14140}
+      Script: {instanceID: 14102}
     - Class: 114
-      Script: {instanceID: 14184}
+      Script: {instanceID: 14146}
     - Class: 114
-      Script: {instanceID: 14232}
+      Script: {instanceID: 14194}
     - Class: 114
-      Script: {instanceID: 14292}
+      Script: {instanceID: 14254}
     - Class: 114
-      Script: {instanceID: 14312}
+      Script: {instanceID: 14274}
     - Class: 114
-      Script: {instanceID: 14412}
+      Script: {instanceID: 14374}
     - Class: 114
-      Script: {instanceID: 14436}
+      Script: {instanceID: 14398}
     - Class: 114
-      Script: {instanceID: 14650}
+      Script: {instanceID: 14612}
     - Class: 114
-      Script: {instanceID: 15074}
+      Script: {instanceID: 15036}
     - Class: 114
-      Script: {instanceID: 15156}
+      Script: {instanceID: 15118}
     - Class: 114
-      Script: {instanceID: 15716}
+      Script: {instanceID: 15678}
     - Class: 114
-      Script: {instanceID: 16188}
+      Script: {instanceID: 16150}
     - Class: 114
-      Script: {instanceID: 16622}
+      Script: {instanceID: 16584}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -151,25 +151,25 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 13628}
+      Script: {instanceID: 13590}
+    - Class: 114
+      Script: {instanceID: 14398}
     - Class: 114
       Script: {instanceID: 14436}
     - Class: 114
-      Script: {instanceID: 14474}
+      Script: {instanceID: 14612}
     - Class: 114
-      Script: {instanceID: 14650}
+      Script: {instanceID: 14660}
     - Class: 114
-      Script: {instanceID: 14698}
+      Script: {instanceID: 15118}
     - Class: 114
-      Script: {instanceID: 15156}
+      Script: {instanceID: 15592}
     - Class: 114
-      Script: {instanceID: 15630}
+      Script: {instanceID: 15616}
     - Class: 114
-      Script: {instanceID: 15654}
+      Script: {instanceID: 16150}
     - Class: 114
-      Script: {instanceID: 16188}
-    - Class: 114
-      Script: {instanceID: 16622}
+      Script: {instanceID: 16584}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -206,23 +206,23 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 13628}
+      Script: {instanceID: 13590}
     - Class: 114
-      Script: {instanceID: 14436}
+      Script: {instanceID: 14398}
     - Class: 114
-      Script: {instanceID: 14650}
+      Script: {instanceID: 14612}
     - Class: 114
-      Script: {instanceID: 14698}
+      Script: {instanceID: 14660}
     - Class: 114
-      Script: {instanceID: 15156}
+      Script: {instanceID: 15118}
     - Class: 114
-      Script: {instanceID: 15630}
+      Script: {instanceID: 15592}
     - Class: 114
-      Script: {instanceID: 15654}
+      Script: {instanceID: 15616}
     - Class: 114
-      Script: {instanceID: 16188}
+      Script: {instanceID: 16150}
     - Class: 114
-      Script: {instanceID: 16622}
+      Script: {instanceID: 16584}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -259,23 +259,23 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 13628}
+      Script: {instanceID: 13590}
     - Class: 114
-      Script: {instanceID: 14436}
+      Script: {instanceID: 14398}
     - Class: 114
-      Script: {instanceID: 14650}
+      Script: {instanceID: 14612}
     - Class: 114
-      Script: {instanceID: 14698}
+      Script: {instanceID: 14660}
     - Class: 114
-      Script: {instanceID: 15156}
+      Script: {instanceID: 15118}
     - Class: 114
-      Script: {instanceID: 15630}
+      Script: {instanceID: 15592}
     - Class: 114
-      Script: {instanceID: 15654}
+      Script: {instanceID: 15616}
     - Class: 114
-      Script: {instanceID: 16188}
+      Script: {instanceID: 16150}
     - Class: 114
-      Script: {instanceID: 16622}
+      Script: {instanceID: 16584}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1139,4 +1139,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/UploadPicOrNotSection.unity
   - Assets/Scenes/CharacterCustomization.unity
   - Assets/Scenes/ARSection.unity
-  playerPath: C:/Users/hanwi/OneDrive/Desktop/Builds/TestCustomization2.apk
+  playerPath: C:/Users/jrasm/Desktop/PersonalSpace/test.apk
