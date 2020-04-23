@@ -37,9 +37,10 @@ public class GameManager : MonoBehaviour
          }*/
         ProcessTouches();
         scoreboard.SetScore(snakeController.GetLength());
-        center.transform.position = firstPersonCamera.transform.position;
+        
         if (planeSelected)
         {
+            center.transform.position = new Vector3(firstPersonCamera.transform.position.x, person.transform.position.y, firstPersonCamera.transform.position.z);
             CalculateDistance();
         }
         
