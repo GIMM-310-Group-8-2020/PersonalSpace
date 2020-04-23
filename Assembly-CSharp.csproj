@@ -256,6 +256,7 @@
     <Compile Include="Assets\GoogleARCore\SDK\Scripts\XPSession.cs" />
     <Compile Include="Assets\GoogleARCore\SDK\Scripts\XPTrackingState.cs" />
     <Compile Include="Assets\MenuManager.cs" />
+    <Compile Include="Assets\PersonController.cs" />
     <Compile Include="Assets\ScoreboardController.cs" />
     <Compile Include="Assets\SnakeController.cs" />
     <None Include="Assets\GoogleARCore\Examples\Common\Materials\Shaders\PlaneGrid.shader" />
