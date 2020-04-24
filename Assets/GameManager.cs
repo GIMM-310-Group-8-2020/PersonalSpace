@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         QuitOnConnectionErrors();
+        center.SetActive(false);
+        person.SetActive(false);
     }
 
     void Update()
@@ -36,7 +38,7 @@ public class GameManager : MonoBehaviour
              Debug.Log("We touchin");
          }*/
         ProcessTouches();
-        scoreboard.SetScore(snakeController.GetLength());
+        //scoreboard.SetScore(snakeController.GetLength());
         
         if (planeSelected)
         {
@@ -84,10 +86,12 @@ public class GameManager : MonoBehaviour
     void SetSelectedPlane(DetectedPlane selectedPlane)
     {
         Debug.Log("Selected plane centered at " + selectedPlane.CenterPose.position);
-        scoreboard.SetSelectedPlane(selectedPlane);
-        snakeController.SetPlane(selectedPlane);
+        //scoreboard.SetSelectedPlane(selectedPlane);
+        //snakeController.SetPlane(selectedPlane);
         GetComponent<FoodController>().SetSelectedPlane(selectedPlane);
         personController.SetSelectedPlane(selectedPlane);
+        center.SetActive(true);
+        person.SetActive(true);
         planeSelected = true;
     }
 
@@ -102,9 +106,13 @@ public class GameManager : MonoBehaviour
         {
             mainText.text = "Near";
         }
-        else
+        else if (dist > 1.0 && dist < 1.5)
         {
             mainText.text = "Far";
+        }
+        else
+        {
+            mainText.text = "Very Far";
         }
     }
 }
