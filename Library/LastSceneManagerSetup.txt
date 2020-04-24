@@ -1,6 +1,10 @@
 sceneSetups:
 <<<<<<< HEAD
+<<<<<<< HEAD
 - path: Assets/Scenes/UploadPicOrNotSection.unity
+=======
+- path: Assets/Scenes/ARSection.unity
+>>>>>>> dd515110603d3e9ae75e8a2fdc9f3f25e0f4f241
 =======
 - path: Assets/Scenes/ARSection.unity
 >>>>>>> dd515110603d3e9ae75e8a2fdc9f3f25e0f4f241
