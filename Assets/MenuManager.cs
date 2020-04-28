@@ -145,6 +145,11 @@ public class MenuManager : MonoBehaviour
                 SceneManager.LoadScene("CharacterCustomization");
                 Debug.Log("Character Customization Button Clicked");
                 break;
+
+            case "ColorPicker":
+                SceneManager.LoadScene("ColorPicker");
+                Debug.Log("Color Picker Button Clicked");
+                break;
         }
     }
 

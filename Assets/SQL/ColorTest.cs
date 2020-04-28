@@ -75,4 +75,9 @@ public class ColorTest : MonoBehaviour
 		mColorDB.deleteAllData();
 		txt.text = "Select a Color for Family:";
 	}
+
+	public void NextScene()
+	{
+		SceneManager.LoadScene("UploadPicOrNotSection");
+	}
 }
