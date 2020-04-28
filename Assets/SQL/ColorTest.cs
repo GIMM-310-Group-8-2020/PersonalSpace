@@ -42,6 +42,10 @@ public class ColorTest : MonoBehaviour
 			addColor("3", "Strangers", btn);
 			SceneManager.LoadScene("dbTest");
 		}
+		else
+		{
+			resetColors();
+		}
 	}
 
 	void addColor(string id, string group, string color)
