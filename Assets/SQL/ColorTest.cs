@@ -42,6 +42,10 @@ public class ColorTest : MonoBehaviour
 			addColor("3", "Strangers", btn);
 			SceneManager.LoadScene("dbTest");
 		}
+		else
+		{
+			resetColors();
+		}
 	}
 
 	void addColor(string id, string group, string color)
@@ -74,5 +78,10 @@ public class ColorTest : MonoBehaviour
 		ColorDB mColorDB = new ColorDB();
 		mColorDB.deleteAllData();
 		txt.text = "Select a Color for Family:";
+	}
+
+	public void NextScene()
+	{
+		SceneManager.LoadScene("UploadPicOrNotSection");
 	}
 }

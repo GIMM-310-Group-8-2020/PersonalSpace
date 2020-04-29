@@ -63,15 +63,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ChangeHair.cs" />
     <Compile Include="Assets\Codelab\Scripts\CodelabUtils.cs" />
     <Compile Include="Assets\Codelab\Scripts\FoodMotion.cs" />
     <Compile Include="Assets\Codelab\Scripts\GlobalScalable.cs" />
     <Compile Include="Assets\Codelab\Scripts\PlaneRenderer.cs" />
     <Compile Include="Assets\Codelab\Scripts\Slithering.cs" />
-    <Compile Include="Assets\FoodConsumer.cs" />
-    <Compile Include="Assets\FoodController.cs" />
-    <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\GoogleARCore\Examples\AugmentedFaces\Scripts\ARCoreAugmentedFaceMeshFilter.cs" />
     <Compile Include="Assets\GoogleARCore\Examples\AugmentedFaces\Scripts\ARCoreAugmentedFaceRig.cs" />
     <Compile Include="Assets\GoogleARCore\Examples\AugmentedFaces\Scripts\AugmentedFacesExampleController.cs" />
@@ -256,14 +252,18 @@
     <Compile Include="Assets\GoogleARCore\SDK\Scripts\XPAnchor.cs" />
     <Compile Include="Assets\GoogleARCore\SDK\Scripts\XPSession.cs" />
     <Compile Include="Assets\GoogleARCore\SDK\Scripts\XPTrackingState.cs" />
-    <Compile Include="Assets\MenuManager.cs" />
-    <Compile Include="Assets\PersonController.cs" />
     <Compile Include="Assets\SQL\Color.cs" />
     <Compile Include="Assets\SQL\ColorDB.cs" />
     <Compile Include="Assets\SQL\ColorTest.cs" />
     <Compile Include="Assets\SQL\SQLite.cs" />
-    <Compile Include="Assets\ScoreboardController.cs" />
-    <Compile Include="Assets\SnakeController.cs" />
+    <Compile Include="Assets\Scripts\ChangeHair.cs" />
+    <Compile Include="Assets\Scripts\FoodConsumer.cs" />
+    <Compile Include="Assets\Scripts\FoodController.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\MenuManager.cs" />
+    <Compile Include="Assets\Scripts\PersonController.cs" />
+    <Compile Include="Assets\Scripts\ScoreboardController.cs" />
+    <Compile Include="Assets\Scripts\SnakeController.cs" />
     <None Include="Assets\GoogleARCore\Examples\Common\Materials\Shaders\PlaneGrid.shader" />
     <None Include="Assets\GoogleARCore\Examples\Common\Materials\Shaders\MobileDiffuseWithLightEstimation.shader" />
     <None Include="Assets\GoogleARCore\SDK\Materials\ARBackground.shader" />
@@ -274,55 +274,55 @@
     <None Include="Assets\GoogleARCore\Examples\Common\Materials\Shaders\MobileSpecularWithLightEstimation.shader" />
     <None Include="Assets\Codelab\Prefabs\Models\VertexColorShader.shader" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/mathe/Google Drive/School/GIMM/310/GitHub/PersonalSpace/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/jrasm/Desktop/PersonalSpace/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Editor">
-      <HintPath>C:/Users/mathe/Google Drive/School/GIMM/310/GitHub/PersonalSpace/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
+      <HintPath>C:/Users/jrasm/Desktop/PersonalSpace/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/mathe/Google Drive/School/GIMM/310/GitHub/PersonalSpace/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/jrasm/Desktop/PersonalSpace/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/mathe/Google Drive/School/GIMM/310/GitHub/PersonalSpace/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/jrasm/Desktop/PersonalSpace/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/mathe/Google Drive/School/GIMM/310/GitHub/PersonalSpace/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/jrasm/Desktop/PersonalSpace/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/mathe/Google Drive/School/GIMM/310/GitHub/PersonalSpace/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/jrasm/Desktop/PersonalSpace/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/mathe/Google Drive/School/GIMM/310/GitHub/PersonalSpace/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/jrasm/Desktop/PersonalSpace/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-weaver.Editor">
-      <HintPath>C:/Users/mathe/Google Drive/School/GIMM/310/GitHub/PersonalSpace/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
+      <HintPath>C:/Users/jrasm/Desktop/PersonalSpace/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-      <HintPath>C:/Users/mathe/Google Drive/School/GIMM/310/GitHub/PersonalSpace/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>C:/Users/jrasm/Desktop/PersonalSpace/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/mathe/Google Drive/School/GIMM/310/GitHub/PersonalSpace/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/jrasm/Desktop/PersonalSpace/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mobile.AndroidLogcat.Editor">
-      <HintPath>C:/Users/mathe/Google Drive/School/GIMM/310/GitHub/PersonalSpace/Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll</HintPath>
+      <HintPath>C:/Users/jrasm/Desktop/PersonalSpace/Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.SpatialTracking">
-      <HintPath>C:/Users/mathe/Google Drive/School/GIMM/310/GitHub/PersonalSpace/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+      <HintPath>C:/Users/jrasm/Desktop/PersonalSpace/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
-      <HintPath>C:/Users/mathe/Google Drive/School/GIMM/310/GitHub/PersonalSpace/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+      <HintPath>C:/Users/jrasm/Desktop/PersonalSpace/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/mathe/Google Drive/School/GIMM/310/GitHub/PersonalSpace/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/jrasm/Desktop/PersonalSpace/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
-      <HintPath>C:/Users/mathe/Google Drive/School/GIMM/310/GitHub/PersonalSpace/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>C:/Users/jrasm/Desktop/PersonalSpace/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/mathe/Google Drive/School/GIMM/310/GitHub/PersonalSpace/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/jrasm/Desktop/PersonalSpace/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Runtime">
-      <HintPath>C:/Users/mathe/Google Drive/School/GIMM/310/GitHub/PersonalSpace/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
+      <HintPath>C:/Users/jrasm/Desktop/PersonalSpace/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.9f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -496,10 +496,10 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.9f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
     <Reference Include="Google.Protobuf">
-      <HintPath>C:/Users/mathe/Google Drive/School/GIMM/310/GitHub/PersonalSpace/Assets/GoogleARCore/SDK/Plugins/Google.Protobuf.dll</HintPath>
+      <HintPath>C:/Users/jrasm/Desktop/PersonalSpace/Assets/GoogleARCore/SDK/Plugins/Google.Protobuf.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Data.Sqlite">
-      <HintPath>C:/Users/mathe/Google Drive/School/GIMM/310/GitHub/PersonalSpace/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
+      <HintPath>C:/Users/jrasm/Desktop/PersonalSpace/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.9f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
