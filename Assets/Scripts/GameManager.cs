@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using GoogleARCore;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,9 +17,16 @@ public class GameManager : MonoBehaviour
     public Renderer farCircle;
     public GameObject person;
     public Text mainText;
+    public Button action;
+    public GameObject verificationScreen;
+    public Text panelText;
+    public Text panelButtonText;
 
 
     private List<Material> mats;
+
+    private string goalDist;
+    private bool correct = false;
 
     private string closeColor;
     private string nearColor;
@@ -33,6 +41,7 @@ public class GameManager : MonoBehaviour
         center.SetActive(false);
         person.SetActive(false);
         mats = Resources.LoadAll<Material>("ColorMaterials/").ToList();
+        goalDist = "close";
     }
 
     void Update()
@@ -199,18 +208,97 @@ public class GameManager : MonoBehaviour
         if (dist < 0.5)
         {
             mainText.text = "Close";
+            action.interactable = true;
         }
         else if (dist > 0.5 && dist < 1.0)
         {
             mainText.text = "Near";
+            action.interactable = true;
         }
         else if (dist > 1.0 && dist < 1.5)
         {
             mainText.text = "Far";
+            action.interactable = true;
         }
         else
         {
             mainText.text = "Very Far";
+            action.interactable = false;
+        }
+    }
+
+    public void Action()
+    {
+        float dist = Vector3.Distance(person.transform.position, center.transform.position);
+        verificationScreen.SetActive(true);
+        if (goalDist == "close")
+        {
+            if (dist < 0.5)
+            {
+                panelText.text = "Nice!";
+                panelButtonText.text = "Continue";
+                correct = true;
+            }
+            else if (dist > 0.5 && dist < 1.0)
+            {
+                panelText.text = "Not quite";
+                panelButtonText.text = "Try Again";
+            }
+            else if (dist > 1.0 && dist < 1.5)
+            {
+                panelText.text = "Not quite";
+                panelButtonText.text = "Try Again";
+            }
+        }
+        else if (goalDist == "near")
+        {
+            if (dist < 0.5)
+            {
+                panelText.text = "Not quite";
+                panelButtonText.text = "Try Again";
+            }
+            else if (dist > 0.5 && dist < 1.0)
+            {
+                panelText.text = "Nice!";
+                panelButtonText.text = "Continue";
+                correct = true;
+            }
+            else if (dist > 1.0 && dist < 1.5)
+            {
+                panelText.text = "Not quite";
+                panelButtonText.text = "Try Again";
+            }
+        }
+        else
+        {
+            if (dist < 0.5)
+            {
+                panelText.text = "Not quite";
+                panelButtonText.text = "Try Again";
+            }
+            else if (dist > 0.5 && dist < 1.0)
+            {
+                panelText.text = "Not quite";
+                panelButtonText.text = "Try Again";
+            }
+            else if (dist > 1.0 && dist < 1.5)
+            {
+                panelText.text = "Nice!";
+                panelButtonText.text = "Continue";
+                correct = true;
+            }
+        }
+    }
+
+    public void PanelButton ()
+    {
+        if (correct)
+        {
+            SceneManager.LoadScene("ColorPicker");
+        }
+        else
+        {
+            verificationScreen.SetActive(false);
         }
     }
 }
