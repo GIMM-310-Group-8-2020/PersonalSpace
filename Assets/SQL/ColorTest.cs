@@ -40,7 +40,7 @@ public class ColorTest : MonoBehaviour
 		else if (count == 2)
 		{
 			addColor("3", "Strangers", btn);
-			SceneManager.LoadScene("dbTest");
+			SceneManager.LoadScene("UploadPicOrNotSection");
 		}
 		else
 		{

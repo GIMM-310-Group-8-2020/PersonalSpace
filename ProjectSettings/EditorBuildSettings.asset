@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/ColorPicker.unity
     guid: cfc97c8303e0c2e4fb2b49258b116863
   - enabled: 1
-    path: Assets/Scenes/dbTest.unity
+    path: Assets/Scenes/dbManager.unity
     guid: 2b2793aa4ff21f4418ee85fba2166463
   - enabled: 1
     path: Assets/Scenes/UploadPicOrNotSection.unity
