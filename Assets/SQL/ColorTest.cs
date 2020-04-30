@@ -8,6 +8,11 @@ using UnityEngine.SceneManagement;
 public class ColorTest : MonoBehaviour
 {
 	public Text txt;
+
+	private void Start()
+	{
+		resetColors();
+	}
 	public void selectColor()
 	{
 		ColorDB mColorDB = new ColorDB();
