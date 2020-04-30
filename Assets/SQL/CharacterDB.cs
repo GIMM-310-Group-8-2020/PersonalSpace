@@ -7,7 +7,7 @@ namespace DataBank
     {
         private const string Tag = "CharacterDB:\t";
 
-        private const string TABLE_NAME = "Locations";
+        private const string TABLE_NAME = "Characters";
         private const string KEY_ID = "id";
         private const string KEY_TYPE = "type";
         private const string KEY_CHARACTER = "character";

@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     private string nearColor;
     private string farColor;
 
+    //private GameObject person;
+
 
     private bool planeSelected = false;
 
@@ -39,9 +41,10 @@ public class GameManager : MonoBehaviour
     {
         QuitOnConnectionErrors();
         center.SetActive(false);
-        person.SetActive(false);
+        //person.SetActive(false);
+        SetUpPerson();
         mats = Resources.LoadAll<Material>("ColorMaterials/").ToList();
-        goalDist = "close";
+        //goalDist = "close";
     }
 
     void Update()
@@ -62,6 +65,39 @@ public class GameManager : MonoBehaviour
             CalculateDistance();
         }
         
+    }
+
+    void SetUpPerson()
+    {
+        CharacterDB mCharacterDB = new CharacterDB();
+        //CharacterData characterData;
+        GameObject child;
+        System.Data.IDataReader reader = mCharacterDB.getAllData();
+        List<CharacterData> myList = new List<CharacterData>();
+        while (reader.Read())
+        {
+            CharacterData entity = new CharacterData(reader[0].ToString(), reader[1].ToString(), reader[2] as GameObject, reader[3].ToString());
+
+            Debug.Log("Character type is " + reader[1].ToString());
+
+            myList.Add(entity);
+        }
+        goalDist = myList[0]._type;
+
+        try
+        {
+            child = Instantiate(myList[0]._character) as GameObject;
+            child.transform.parent = person.transform;
+            Debug.Log("child has been instantiated");
+        }
+        catch
+        {
+            Debug.Log("CHILD NOT INSTANTIATED");
+            mainText.text = "CHILD NOT INSTANTIATED";
+        }
+        
+
+        person.SetActive(false);
     }
 
     void QuitOnConnectionErrors()

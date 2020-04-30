@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using DataBank;
 
 public class MenuManager : MonoBehaviour
 {
@@ -25,6 +26,9 @@ public class MenuManager : MonoBehaviour
 
         backgroundPos = backgroundImage.GetComponent<Transform>();
 
+        CharacterDB mCharacterDB = new CharacterDB();
+        mCharacterDB.deleteAllData();
+        mCharacterDB.close();
     }
 
     public void GetPicture()
@@ -222,7 +226,7 @@ public class MenuManager : MonoBehaviour
     public void NextScene(string name)
     {
         //Check which scene to load
-        switch(name)
+        switch (name)
         {
             case "Menu":
                 SceneManager.LoadScene("Menu");
@@ -246,6 +250,43 @@ public class MenuManager : MonoBehaviour
                 Debug.Log("Color Picker Button Clicked");
                 break;
         }
+    }
+
+    public void SaveCharacter()
+    {
+        GameObject character = new GameObject();
+        /*if (DropdownMenu.Instance.genVal == 0)
+        {
+            try
+            {
+                character = GameObject.Find("Canvas/FemaleCharacter");
+                Debug.Log("Female Character successfully found");
+            }
+            catch
+            {
+                Debug.Log("Female Character not found");
+            }
+        }
+        else if (DropdownMenu.Instance.genVal == 1)
+        {
+            try
+            {
+                character = GameObject.Find("Canvas/MaleCharacter");
+                Debug.Log("Male Character successfully found");
+            }
+            catch
+            {
+                Debug.Log("Male Character not found");
+            }
+
+        }*/
+        character = GameObject.Find("TestObject");
+        CharacterDB mCharacterDB = new CharacterDB();
+        //mCharacterDB.deleteAllData();
+        mCharacterDB.addData(new CharacterData("0", DropdownMenu.Instance.typeVal, character));
+        mCharacterDB.close();
+
+        NextScene("ARSection");
     }
 
     /*public void NextScene()

@@ -51,6 +51,7 @@ public class ColorTest : MonoBehaviour
 		{
 			resetColors();
 		}
+		mColorDB.close();
 	}
 
 	void addColor(string id, string group, string color)

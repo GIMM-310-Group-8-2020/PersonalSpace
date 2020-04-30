@@ -13,6 +13,7 @@ public class DropdownMenu : MonoBehaviour
     public GameObject male;
 
     public int genVal = 0;
+    public string typeVal = "far";
 
     private void Start()
     {
@@ -47,9 +48,30 @@ public class DropdownMenu : MonoBehaviour
         }
         else
         {
-            Debug.Log("Please pick an identifier type");
+            Debug.Log("Please pick an identifier type 1");
         }
         
+    }
+
+    public void TypeHandler (int value)
+    {
+        //check drop down menu value
+        if (value == 0)
+        {
+            typeVal = "close";
+        }
+        else if (value == 1)
+        {
+            typeVal = "near";
+        }
+        else if (value == 2)
+        {
+            typeVal = "far";
+        }
+        else
+        {
+            Debug.Log("Please pick an identifier type 2");
+        }
     }
 
 }
