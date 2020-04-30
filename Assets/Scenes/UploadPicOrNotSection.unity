@@ -286,7 +286,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 663031604}
-        m_MethodName: MenuDrop
+        m_MethodName: GetPicture
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -610,8 +610,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPicture: {fileID: 0}
-  dropDownMenu: {fileID: 1406497016}
   backgroundImage: {fileID: 2034984577}
+  dropDownMenus: []
   dropdownSpeed: 0.5
 --- !u!4 &663031605
 Transform:
