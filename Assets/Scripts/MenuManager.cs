@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    public static MenuManager Instance;
+
     public RawImage targetPicture;
     public RawImage backgroundImage;
     public RawImage[] dropDownMenus;
@@ -13,11 +15,16 @@ public class MenuManager : MonoBehaviour
     public float dropdownSpeed = 1f;
 
     private Transform backgroundPos;
+    private int characterTypeVal;
 
 
     private void Start()
     {
+        //Make MenuManager accessible from any script
+        Instance = this;
+
         backgroundPos = backgroundImage.GetComponent<Transform>();
+
     }
 
     public void GetPicture()
@@ -127,15 +134,39 @@ public class MenuManager : MonoBehaviour
             case "Outfit":
                 //Get current transform of the Drop Down Menu
                 Debug.Log("Clicking outfit");
-                Transform outfitMenuPos = dropDownMenus[4].GetComponent<Transform>();
 
-                //Get starting position for the Drop Down Menu and position of the background
-                Vector2 firstPos = outfitMenuPos.localPosition;
-                Vector2 lastPos = backgroundPos.localPosition;
+                //check if female or male is selected
+                if(DropdownMenu.Instance.genVal == 0)
+                {
+                    Debug.Log("Female outfits selected");
 
-                Debug.Log("Starting Position: " + firstPos + "/n Final Position: " + lastPos);
+                    //Get current transform of the drop down menu
+                    Transform femaleOutfitMenuPos = dropDownMenus[4].GetComponent<Transform>();
 
-                dropDownMenus[4].transform.localPosition = lastPos;
+                    //Get starting position for the Drop Down Menu and position of the background
+                    Vector2 firstPos = femaleOutfitMenuPos.localPosition;
+                    Vector2 lastPos = backgroundPos.localPosition;
+
+                    Debug.Log("Starting Position: " + firstPos + "/n Final Position: " + lastPos);
+
+                    dropDownMenus[4].transform.localPosition = lastPos;
+                }
+                
+                else if(DropdownMenu.Instance.genVal == 1)
+                {
+                    Debug.Log("Male outfits selected");
+
+                    //Get current transform of the drop down menu
+                    Transform maleOutfitMenuPos = dropDownMenus[5].GetComponent<Transform>();
+
+                    //Get starting position for the Drop Down Menu and position of the background
+                    Vector2 firstPos = maleOutfitMenuPos.localPosition;
+                    Vector2 lastPos = backgroundPos.localPosition;
+
+                    Debug.Log("Starting Position: " + firstPos + "/n Final Position: " + lastPos);
+
+                    dropDownMenus[5].transform.localPosition = lastPos;
+                }
                 break;
 
             case "Body":
@@ -169,9 +200,23 @@ public class MenuManager : MonoBehaviour
 
         }
 
+    }
 
-        ;
+    //Create input handler for character type drop down menu
+    public void CharacterTypeInput(int val)
+    {
+        //store the value from the character type drop down menu
+        //so it can be accessed anywhere
+        characterTypeVal = val;
 
+        if(val == 0)
+        {
+            Debug.Log("Character type: Family");
+        }
+        else if(val == 1)
+        {
+            Debug.Log("Character type: Friend");
+        }
     }
 
     public void NextScene(string name)

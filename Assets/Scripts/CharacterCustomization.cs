@@ -5,147 +5,296 @@ using UnityEngine.UI;
 
 public class CharacterCustomization : MonoBehaviour
 {
-    public Button HairButton;
-    public Button SkinButton;
-    public Button HandButton;
-    public Button EyeButton;
-    public Button OutfitButton;
+    public static CharacterCustomization Instance;
+
+    public Button femaleHairButton;
+    public Button femaleSkinButton;
+    public Button femaleHandButton;
+    public Button femaleEyeButton;
+    public Button femaleOutfitButton;
+    public Button maleHairButton;
+    public Button maleSkinButton;
+    public Button maleEyeButton;
+    public Button maleOutfitButton;
 
     public RawImage[] DropDownMenus;
 
+    //arrays to hold different sprites for each category: female
+    public Sprite[] femaleLongHair;
+    public Sprite[] femaleShortHair;
+    public Sprite[] femaleEyes;
+    public Sprite[] femaleOutfit;
+    public Sprite[] femaleSkinColor;
+    public Sprite[] femaleHandColor;
 
-    public Sprite[] longHair;
-    public Sprite[] shortHair;
-    public Sprite[] eyes;
-    public Sprite[] outfit;
-    public Sprite[] skinColor;
-    public Sprite[] handColor;
+    //arrays to hold different sprites for each category: male
+    public Sprite[] maleHair;
+    public Sprite[] maleEyes;
+    public Sprite[] maleOutfit;
+    public Sprite[] maleSkinColor;
 
 
+    private void Start()
+    {
+        Instance = this;
+    }
+
+    //Change the hair color, taking the string input given when button pressed
     public void ChangeHairColor(string hairColor)
     {
+        //Set drop down menu's new position to off the screen
         Vector2 finalPos = new Vector2(0, 1920);
         DropDownMenus[1].transform.localPosition = finalPos;
- 
-        switch (hairColor)
+        
+        //check which gender is checked
+        if(DropdownMenu.Instance.genVal == 0)
         {
-            case "Super Blonde Hair":
-                HairButton.GetComponent<Image>().sprite = longHair[0];
-                break;
+            //check the string value of the button pressed
+            switch (hairColor)
+            {
+                case "Super Blonde Hair":
+                    femaleHairButton.GetComponent<Image>().sprite = femaleLongHair[0];
+                    break;
 
-            case "Blonde Hair":
-                HairButton.GetComponent<Image>().sprite = longHair[1];
-                break;
+                case "Blonde Hair":
+                    femaleHairButton.GetComponent<Image>().sprite = femaleLongHair[1];
+                    break;
 
-            case "Brown Hair":
-                HairButton.GetComponent<Image>().sprite = longHair[2];
-                break;
+                case "Brown Hair":
+                    femaleHairButton.GetComponent<Image>().sprite = femaleLongHair[2];
+                    break;
 
-            case "Black Hair":
-                HairButton.GetComponent<Image>().sprite = longHair[3];
-                break;
+                case "Black Hair":
+                    femaleHairButton.GetComponent<Image>().sprite = femaleLongHair[3];
+                    break;
 
-            case "Red Hair":
-                HairButton.GetComponent<Image>().sprite = longHair[4];
-                break;
+                case "Red Hair":
+                    femaleHairButton.GetComponent<Image>().sprite = femaleLongHair[4];
+                    break;
 
-            case "Orange Hair":
-                HairButton.GetComponent<Image>().sprite = longHair[5];
-                break;
+                case "Orange Hair":
+                    femaleHairButton.GetComponent<Image>().sprite = femaleLongHair[5];
+                    break;
+            }
         }
+
+        else if (DropdownMenu.Instance.genVal == 1)
+        {
+            //check the string value of the button pressed
+            switch (hairColor)
+            {
+                case "Super Blonde Hair":
+                    maleHairButton.GetComponent<Image>().sprite = maleHair[0];
+                    break;
+
+                case "Blonde Hair":
+                    maleHairButton.GetComponent<Image>().sprite = maleHair[1];
+                    break;
+
+                case "Brown Hair":
+                    maleHairButton.GetComponent<Image>().sprite = maleHair[2];
+                    break;
+
+                case "Black Hair":
+                    maleHairButton.GetComponent<Image>().sprite = maleHair[3];
+                    break;
+
+                case "Red Hair":
+                    maleHairButton.GetComponent<Image>().sprite = maleHair[4];
+                    break;
+
+                case "Orange Hair":
+                    maleHairButton.GetComponent<Image>().sprite = maleHair[5];
+                    break;
+            }
+        }
+        
         
     }
 
+    //Change the eye color, taking the string input given when button pressed
     public void ChangeEyeColor(string eyeColor)
     {
         Vector2 finalPos = new Vector2(0, 1920);
         DropDownMenus[2].transform.localPosition = finalPos;
 
-        
-        switch (eyeColor)
+        //check which gender is checked
+        if(DropdownMenu.Instance.genVal == 0)
         {
-            case "Blue Eyes":
-                EyeButton.GetComponent<Image>().sprite = eyes[0];
-                break;
+            switch (eyeColor)
+            {
+                case "Blue Eyes":
+                    femaleEyeButton.GetComponent<Image>().sprite = femaleEyes[0];
+                    break;
 
-            case "Brown Eyes":
-                EyeButton.GetComponent<Image>().sprite = eyes[1];
-                break;
+                case "Brown Eyes":
+                    femaleEyeButton.GetComponent<Image>().sprite = femaleEyes[1];
+                    break;
 
-            case "Green Eyes":
-                EyeButton.GetComponent<Image>().sprite = eyes[2];
-                break;
+                case "Green Eyes":
+                    femaleEyeButton.GetComponent<Image>().sprite = femaleEyes[2];
+                    break;
 
-            case "Hazel Eyes":
-                EyeButton.GetComponent<Image>().sprite = eyes[3];
-                break;
+                case "Hazel Eyes":
+                    femaleEyeButton.GetComponent<Image>().sprite = femaleEyes[3];
+                    break;
+            }
+        }
+        
+        else if(DropdownMenu.Instance.genVal == 1)
+        {
+            switch (eyeColor)
+            {
+                case "Blue Eyes":
+                    maleEyeButton.GetComponent<Image>().sprite = maleEyes[0];
+                    break;
+
+                case "Brown Eyes":
+                    maleEyeButton.GetComponent<Image>().sprite = maleEyes[1];
+                    break;
+
+                case "Green Eyes":
+                    maleEyeButton.GetComponent<Image>().sprite = maleEyes[2];
+                    break;
+
+                case "Hazel Eyes":
+                    maleEyeButton.GetComponent<Image>().sprite = maleEyes[3];
+                    break;
+            }
         }
         
     }
 
+    //Change the skin color, taking the string input given when button pressed
     public void ChangeSkinColor(string skin)
     {
         Vector2 finalPos = new Vector2(0, 1920);
         DropDownMenus[0].transform.localPosition = finalPos;
 
-        switch (skin)
+        if(DropdownMenu.Instance.genVal == 0)
         {
-            case "Half Light":
-                SkinButton.GetComponent<Image>().sprite = skinColor[0];
-                HandButton.GetComponent<Image>().sprite = handColor[0];
-                break;
+            switch (skin)
+            {
+                case "Half Light":
+                    femaleSkinButton.GetComponent<Image>().sprite = femaleSkinColor[0];
+                    femaleHandButton.GetComponent<Image>().sprite = femaleHandColor[0];
+                    break;
 
-            case "Light":
-                SkinButton.GetComponent<Image>().sprite = skinColor[1];
-                HandButton.GetComponent<Image>().sprite = handColor[1];
-                break;
+                case "Light":
+                    femaleSkinButton.GetComponent<Image>().sprite = femaleSkinColor[1];
+                    femaleHandButton.GetComponent<Image>().sprite = femaleHandColor[1];
+                    break;
 
-            case "Half Medium":
-                SkinButton.GetComponent<Image>().sprite = skinColor[2];
-                HandButton.GetComponent<Image>().sprite = handColor[2];
-                break;
+                case "Half Medium":
+                    femaleSkinButton.GetComponent<Image>().sprite = femaleSkinColor[2];
+                    femaleHandButton.GetComponent<Image>().sprite = femaleHandColor[2];
+                    break;
 
-            case "Medium":
-                SkinButton.GetComponent<Image>().sprite = skinColor[3];
-                HandButton.GetComponent<Image>().sprite = handColor[3];
-                break;
+                case "Medium":
+                    femaleSkinButton.GetComponent<Image>().sprite = femaleSkinColor[3];
+                    femaleHandButton.GetComponent<Image>().sprite = femaleHandColor[3];
+                    break;
 
-            case "Half Dark":
-                SkinButton.GetComponent<Image>().sprite = skinColor[4];
-                HandButton.GetComponent<Image>().sprite = handColor[4];
-                break;
+                case "Half Dark":
+                    femaleSkinButton.GetComponent<Image>().sprite = femaleSkinColor[4];
+                    femaleHandButton.GetComponent<Image>().sprite = femaleHandColor[4];
+                    break;
 
-            case "Dark":
-                SkinButton.GetComponent<Image>().sprite = skinColor[5];
-                HandButton.GetComponent<Image>().sprite = handColor[5];
-                break;
+                case "Dark":
+                    femaleSkinButton.GetComponent<Image>().sprite = femaleSkinColor[5];
+                    femaleHandButton.GetComponent<Image>().sprite = femaleHandColor[5];
+                    break;
+            }
         }
+
+        else if(DropdownMenu.Instance.genVal == 1)
+        {
+            switch (skin)
+            {
+                case "Half Light":
+                    maleSkinButton.GetComponent<Image>().sprite = maleSkinColor[0];
+                    break;
+
+                case "Light":
+                    maleSkinButton.GetComponent<Image>().sprite = maleSkinColor[1];
+                    break;
+
+                case "Half Medium":
+                    maleSkinButton.GetComponent<Image>().sprite = maleSkinColor[2];
+                    break;
+
+                case "Medium":
+                    maleSkinButton.GetComponent<Image>().sprite = maleSkinColor[3];
+                    break;
+
+                case "Half Dark":
+                    maleSkinButton.GetComponent<Image>().sprite = maleSkinColor[4];
+                    break;
+
+                case "Dark":
+                    maleSkinButton.GetComponent<Image>().sprite = maleSkinColor[5];
+                    break;
+            }
+        }
+        
 
     }
 
+    //Change the outfit, taking the string input given when button pressed
     public void ChangeOutfit(string outfitSelection)
     {
-        Vector2 finalPos = new Vector2(0, 1920);
-        DropDownMenus[3].transform.localPosition = finalPos;
+       
 
-        switch (outfitSelection)
+        if(DropdownMenu.Instance.genVal == 0)
         {
-            case "Outfit 1":
-                OutfitButton.GetComponent<Image>().sprite = outfit[0];
-                break;
+            Vector2 finalPos = new Vector2(0, 1920);
+            DropDownMenus[3].transform.localPosition = finalPos;
 
-            case "Outfit 2":
-                OutfitButton.GetComponent<Image>().sprite = outfit[1];
-                break;
+            switch (outfitSelection)
+            {
+                case "Outfit 1":
+                    femaleOutfitButton.GetComponent<Image>().sprite = femaleOutfit[0];
+                    break;
 
-            case "Outfit 3":
-                OutfitButton.GetComponent<Image>().sprite = outfit[2];
-                break;
+                case "Outfit 2":
+                    femaleOutfitButton.GetComponent<Image>().sprite = femaleOutfit[1];
+                    break;
 
-            case "Default":
-                OutfitButton.GetComponent<Image>().sprite = outfit[3];
-                break;
+                case "Outfit 3":
+                    femaleOutfitButton.GetComponent<Image>().sprite = femaleOutfit[2];
+                    break;
 
+                case "Default":
+                    femaleOutfitButton.GetComponent<Image>().sprite = femaleOutfit[3];
+                    break;
+
+            }
+        }
+
+        else if (DropdownMenu.Instance.genVal == 1)
+        {
+            Vector2 finalPos = new Vector2(0, 1920);
+            DropDownMenus[5].transform.localPosition = finalPos;
+
+            switch (outfitSelection)
+            {
+                case "Outfit 1":
+                    maleOutfitButton.GetComponent<Image>().sprite = maleOutfit[0];
+                    break;
+
+                case "Outfit 2":
+                    maleOutfitButton.GetComponent<Image>().sprite = maleOutfit[1];
+                    break;
+
+                case "Outfit 3":
+                    maleOutfitButton.GetComponent<Image>().sprite = maleOutfit[2];
+                    break;
+
+                case "Default":
+                    maleOutfitButton.GetComponent<Image>().sprite = maleOutfit[3];
+                    break;
+
+            }
         }
 
     }

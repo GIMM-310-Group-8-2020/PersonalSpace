@@ -62,7 +62,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\AlphaButton.cs" />
     <Compile Include="Assets\Codelab\Scripts\CodelabUtils.cs" />
     <Compile Include="Assets\Codelab\Scripts\FoodMotion.cs" />
     <Compile Include="Assets\Codelab\Scripts\GlobalScalable.cs" />
@@ -256,8 +255,10 @@
     <Compile Include="Assets\SQL\ColorDB.cs" />
     <Compile Include="Assets\SQL\ColorTest.cs" />
     <Compile Include="Assets\SQL\SQLite.cs" />
+    <Compile Include="Assets\Scripts\AlphaButton.cs" />
     <Compile Include="Assets\Scripts\ChangeHair.cs" />
     <Compile Include="Assets\Scripts\CharacterCustomization.cs" />
+    <Compile Include="Assets\Scripts\DropdownMenu.cs" />
     <Compile Include="Assets\Scripts\FoodConsumer.cs" />
     <Compile Include="Assets\Scripts\FoodController.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
@@ -266,13 +267,31 @@
     <Compile Include="Assets\Scripts\ScoreboardController.cs" />
     <Compile Include="Assets\Scripts\SnakeController.cs" />
     <None Include="Assets\GoogleARCore\Examples\Common\Materials\Shaders\PlaneGrid.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\GoogleARCore\Examples\Common\Materials\Shaders\MobileDiffuseWithLightEstimation.shader" />
     <None Include="Assets\GoogleARCore\SDK\Materials\ARBackground.shader" />
     <None Include="Assets\GoogleARCore\Examples\Common\Materials\Shaders\TransparentShadow.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\GoogleARCore\Examples\AugmentedFaces\Materials\Shaders\AugmentedFaceOccluder.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\GoogleARCore\Examples\Common\Materials\Shaders\PointCloud.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\GoogleARCore\Examples\ComputerVision\Materials\EdgeDetectionBackground.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\GoogleARCore\Examples\Common\Materials\Shaders\MobileSpecularWithLightEstimation.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\Codelab\Prefabs\Models\VertexColorShader.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/hanwi/OneDrive/Desktop/Personal Space/PersonalSpace/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
