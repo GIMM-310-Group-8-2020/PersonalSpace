@@ -7,12 +7,11 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     public RawImage targetPicture;
-    public RawImage dropDownMenu;
     public RawImage backgroundImage;
+    public RawImage[] dropDownMenus;
 
     public float dropdownSpeed = 1f;
 
-    private Transform dropmenuPos;
     private Transform backgroundPos;
 
 
@@ -107,20 +106,71 @@ public class MenuManager : MonoBehaviour
         Destroy(ss);
     }
 
-    public void MenuDrop()
+    public void MenuDrop(string type)
     {
-        //Get current transform of the Drop Down Menu
-        dropmenuPos = dropDownMenu.GetComponent<Transform>();
+       switch(type)
+        {
+            case "Hair":
+                //Get current transform of the Drop Down Menu
+                Debug.Log("Clicking hair");
+                Transform dropmenuPos = dropDownMenus[1].GetComponent<Transform>();
 
-        //Get starting position for the Drop Down Menu and position of the background
-        Vector2 startPos = dropmenuPos.localPosition;
-        Vector2 finalPos = backgroundPos.localPosition;
+                //Get starting position for the Drop Down Menu and position of the background
+                Vector2 startPos = dropmenuPos.localPosition;
+                Vector2 finalPos = backgroundPos.localPosition;
 
-        Debug.Log("Starting Position: " + startPos + "/n Final Position: " + finalPos);
+                Debug.Log("Starting Position: " + startPos + "/n Final Position: " + finalPos);
 
-        dropDownMenu.transform.localPosition = finalPos;
+                dropDownMenus[1].transform.localPosition = finalPos;
+                break;
 
-       // dropDownMenu.transform.position = Vector2.Lerp(startPos, finalPos, 1);
+            case "Outfit":
+                //Get current transform of the Drop Down Menu
+                Debug.Log("Clicking outfit");
+                Transform outfitMenuPos = dropDownMenus[4].GetComponent<Transform>();
+
+                //Get starting position for the Drop Down Menu and position of the background
+                Vector2 firstPos = outfitMenuPos.localPosition;
+                Vector2 lastPos = backgroundPos.localPosition;
+
+                Debug.Log("Starting Position: " + firstPos + "/n Final Position: " + lastPos);
+
+                dropDownMenus[4].transform.localPosition = lastPos;
+                break;
+
+            case "Body":
+                //Get current transform of the Drop Down Menu
+                Debug.Log("Clicking body");
+                Transform hairMenuPos = dropDownMenus[0].GetComponent<Transform>();
+
+                //Get starting position for the Drop Down Menu and position of the background
+                Vector2 starPos = hairMenuPos.localPosition;
+                Vector2 finaPos = backgroundPos.localPosition;
+
+                Debug.Log("Starting Position: " + starPos + "/n Final Position: " + finaPos);
+
+                dropDownMenus[0].transform.localPosition = finaPos;
+                break;
+
+            case "Eyes":
+                //Get current transform of the Drop Down Menu
+                Debug.Log("Clicking eyes");
+                Transform eyeMenuPos = dropDownMenus[2].GetComponent<Transform>();
+
+                //Get starting position for the Drop Down Menu and position of the background
+                Vector2 startingPos = eyeMenuPos.localPosition;
+                Vector2 finalPosition = backgroundPos.localPosition;
+
+                Debug.Log("Starting Position: " + startingPos + "/n Final Position: " + finalPosition);
+
+                dropDownMenus[2].transform.localPosition = finalPosition;
+                break;
+
+
+        }
+
+
+        ;
 
     }
 
