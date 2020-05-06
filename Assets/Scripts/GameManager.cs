@@ -6,6 +6,10 @@ using UnityEngine.UI;
 using GoogleARCore;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
+using System.Runtime.Serialization;
+using UnityEngine.XR.WSA;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,6 +28,7 @@ public class GameManager : MonoBehaviour
 
 
     private List<Material> mats;
+    private GameObject[] characters;
 
     private string goalDist;
     private bool correct = false;
@@ -42,9 +47,11 @@ public class GameManager : MonoBehaviour
         QuitOnConnectionErrors();
         center.SetActive(false);
         //person.SetActive(false);
+        goalDist = "close";
         SetUpPerson();
         mats = Resources.LoadAll<Material>("ColorMaterials/").ToList();
-        //goalDist = "close";
+        characters = Resources.LoadAll<GameObject>("Characters/");
+        
     }
 
     void Update()
@@ -69,7 +76,7 @@ public class GameManager : MonoBehaviour
 
     void SetUpPerson()
     {
-        CharacterDB mCharacterDB = new CharacterDB();
+        /*CharacterDB mCharacterDB = new CharacterDB();
         //CharacterData characterData;
         GameObject child;
         System.Data.IDataReader reader = mCharacterDB.getAllData();
@@ -94,8 +101,36 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("CHILD NOT INSTANTIATED");
             mainText.text = "CHILD NOT INSTANTIATED";
+        }*/
+
+        GameObject child;
+        if (File.Exists(Application.persistentDataPath + "/charactersave.save"))
+        {
+            try
+            {
+                FileStream file = File.Open(Application.persistentDataPath + "/charactersave.save", FileMode.Open);
+                CharacterSave save = new CharacterSave();
+                DataContractSerializer bf = new DataContractSerializer(save.GetType());
+                save = (CharacterSave)bf.ReadObject(file);
+
+                
+                child = Instantiate(save.character, new Vector3(0, 0, 0), Quaternion.identity); 
+                goalDist = save.distance;
+                Debug.Log("GOAL DISTANCE IS " + save.distance + " AND GO NAME IS " + save.character.name);
+                //child.transform.parent = person.transform;
+            }
+            catch
+            {
+                Debug.Log("CHARACTER NOT LOADED");
+                mainText.text = ("CHARACTER NOT LOADED");
+            }
         }
-        
+        else
+        {
+            Debug.Log("FILE NOT FOUND");
+            mainText.text = ("FILE NOT FOUND");
+        }
+
 
         person.SetActive(false);
     }

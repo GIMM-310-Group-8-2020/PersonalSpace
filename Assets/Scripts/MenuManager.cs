@@ -4,6 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using DataBank;
+using UnityEditor;
+using System.IO;
+using System.Runtime.InteropServices;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
 
 public class MenuManager : MonoBehaviour
 {
@@ -18,6 +23,8 @@ public class MenuManager : MonoBehaviour
     private Transform backgroundPos;
     private int characterTypeVal;
 
+    //private GameObject[] characters;
+
 
     private void Start()
     {
@@ -26,9 +33,11 @@ public class MenuManager : MonoBehaviour
 
         backgroundPos = backgroundImage.GetComponent<Transform>();
 
-        CharacterDB mCharacterDB = new CharacterDB();
+        /*CharacterDB mCharacterDB = new CharacterDB();
         mCharacterDB.deleteAllData();
-        mCharacterDB.close();
+        mCharacterDB.close();*/
+
+        //characters = Resources.LoadAll<GameObject>("Characters/");
     }
 
     public void GetPicture()
@@ -280,13 +289,35 @@ public class MenuManager : MonoBehaviour
             }
 
         }*/
-        character = GameObject.Find("TestObject");
-        CharacterDB mCharacterDB = new CharacterDB();
-        //mCharacterDB.deleteAllData();
-        mCharacterDB.addData(new CharacterData("0", DropdownMenu.Instance.typeVal, character));
-        mCharacterDB.close();
+        character = GameObject.Find("cube");
+        CharacterSave save = new CharacterSave();
+        save.character = character;
+        save.distance = DropdownMenu.Instance.GetDist();
+        FileStream file = File.Create(Application.persistentDataPath + "/charactersave.save");
 
-        NextScene("ARSection");
+        //serialize to xml
+        DataContractSerializer bf = new DataContractSerializer(save.GetType());
+        MemoryStream streamer = new MemoryStream();
+
+        //serialize the file
+        bf.WriteObject(streamer, save);
+        streamer.Seek(0, SeekOrigin.Begin);
+
+        //save to disk
+        file.Write(streamer.GetBuffer(), 0, streamer.GetBuffer().Length);
+        file.Close();
+
+
+
+
+        /*CharacterDB mCharacterDB = new CharacterDB();
+        //mCharacterDB.deleteAllData();
+        mCharacterDB.addData(new CharacterData("0", DropdownMenu.Instance.GetDist(), character));
+        mCharacterDB.close();*/
+
+        //NextScene("ARSection");
+            SceneManager.LoadScene("TestScene");
+        
     }
 
     /*public void NextScene()

@@ -13,11 +13,12 @@ public class DropdownMenu : MonoBehaviour
     public GameObject male;
 
     public int genVal = 0;
-    public string typeVal = "far";
+    public string typeVal;
 
     private void Start()
     {
         Instance = this;
+        typeVal = "Far";
     }
 
     //function to handle input from the gender picker drop down menu
@@ -72,6 +73,11 @@ public class DropdownMenu : MonoBehaviour
         {
             Debug.Log("Please pick an identifier type 2");
         }
+    }
+
+    public string GetDist()
+    {
+        return typeVal;
     }
 
 }
