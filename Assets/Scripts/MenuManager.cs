@@ -271,7 +271,12 @@ public class MenuManager : MonoBehaviour
                 outfitVal = CharacterCustomization.Instance.outfitString;
 
                 Debug.Log("Female Character successfully found");
-                Debug.Log(DropdownMenu.Instance.typeVal + hairVal + skinVal + eyeVal + outfitVal);
+                //Debug.Log(DropdownMenu.Instance.typeVal + hairVal + skinVal + eyeVal + outfitVal);
+
+                CharacterDB mCharacterDB = new CharacterDB();
+                //mCharacterDB.deleteAllData();
+                mCharacterDB.addData(new CharacterData("0", DropdownMenu.Instance.typeVal, DropdownMenu.Instance.genVal, hairVal, skinVal, eyeVal, outfitVal));
+                mCharacterDB.close();
             }
             catch
             {
@@ -283,14 +288,18 @@ public class MenuManager : MonoBehaviour
             try
             {
                 //character = GameObject.Find("Canvas/MaleCharacter");
-
                 hairVal = CharacterCustomization.Instance.hairString;
                 skinVal = CharacterCustomization.Instance.skinString;
                 eyeVal = CharacterCustomization.Instance.eyeString;
                 outfitVal = CharacterCustomization.Instance.outfitString;
 
                 Debug.Log("Male Character successfully found");
-                Debug.Log(DropdownMenu.Instance.typeVal + hairVal + skinVal + eyeVal + outfitVal);
+                //Debug.Log(DropdownMenu.Instance.typeVal + hairVal + skinVal + eyeVal + outfitVal);
+
+                CharacterDB mCharacterDB = new CharacterDB();
+                //mCharacterDB.deleteAllData();
+                mCharacterDB.addData(new CharacterData("0", DropdownMenu.Instance.typeVal, DropdownMenu.Instance.genVal, hairVal, skinVal, eyeVal, outfitVal));
+                mCharacterDB.close();
             }
             catch
             {
@@ -298,22 +307,9 @@ public class MenuManager : MonoBehaviour
             }
 
         }
-        //character = GameObject.Find("TestObject");
 
-        CharacterDB mCharacterDB = new CharacterDB();
-        mCharacterDB.deleteAllData();
-        mCharacterDB.addData(new CharacterData("0", DropdownMenu.Instance.typeVal, character));
 
-        
-
-        //mCharacterDB.close();
-
-        //NextScene("ARSection");
-    }
-
-    /*public void NextScene()
-    {
         SceneManager.LoadScene("ARSection");
-    }*/
+    }
     
 }

@@ -69,35 +69,32 @@ public class GameManager : MonoBehaviour
 
     void SetUpPerson()
     {
-        CharacterDB mCharacterDB = new CharacterDB();
-        //CharacterData characterData;
-        GameObject child;
-        System.Data.IDataReader reader = mCharacterDB.getAllData();
-        List<CharacterData> myList = new List<CharacterData>();
-        while (reader.Read())
-        {
-            CharacterData entity = new CharacterData(reader[0].ToString(), reader[1].ToString(), reader[2] as GameObject, reader[3].ToString());
-
-            Debug.Log("Character type is " + reader[1].ToString());
-
-            myList.Add(entity);
-        }
-        goalDist = myList[0]._type;
-
         try
         {
-            child = Instantiate(myList[0]._character) as GameObject;
-            child.transform.parent = person.transform;
-            Debug.Log("child has been instantiated");
+            CharacterDB mCharacterDB = new CharacterDB();
+            //CharacterData characterData;
+            System.Data.IDataReader reader = mCharacterDB.getAllData();
+            List<CharacterData> myList = new List<CharacterData>();
+            while (reader.Read())
+            {
+                CharacterData entity = new CharacterData(reader[0].ToString(), reader[1].ToString(), int.Parse(reader[2].ToString()), reader[3].ToString(), reader[4].ToString(), reader[5].ToString(), reader[6].ToString());
+
+                Debug.Log("Character type is " + reader[1].ToString());
+
+                myList.Add(entity);
+            }
+            goalDist = myList[0]._type;
+
+            Debug.Log("Character Data: " + myList[0]._type + myList[0]._gender.ToString() + myList[0]._hair + myList[0]._skin + myList[0]._eyes + myList[0]._outfit);
+
+            person.SetActive(false);
         }
         catch
         {
-            Debug.Log("CHILD NOT INSTANTIATED");
-            mainText.text = "CHILD NOT INSTANTIATED";
+            Debug.Log("CHARACTER NOT LOADED");
+            mainText.text = "CHARACTER NOT LOADED";
         }
         
-
-        person.SetActive(false);
     }
 
     void QuitOnConnectionErrors()

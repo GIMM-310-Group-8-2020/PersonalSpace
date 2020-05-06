@@ -5,14 +5,26 @@ namespace DataBank
 {
     public class CharacterDB : SQLite
     {
+        /*_id = id;
+            _type = type;
+            _gender = gender;
+            _hair = hair;
+            _skin = skin;
+            _eyes = eyes;
+            _outfit = outfit;
+            _dateCreated = "";*/
         private const string Tag = "CharacterDB:\t";
 
         private const string TABLE_NAME = "Characters";
         private const string KEY_ID = "id";
         private const string KEY_TYPE = "type";
-        private const string KEY_CHARACTER = "character";
+        private const string KEY_GENDER = "gender";
+        private const string KEY_HAIR = "hair";
+        private const string KEY_SKIN = "skin";
+        private const string KEY_EYES = "eyes";
+        private const string KEY_OUTFIT = "outfit";
         private const string KEY_DATE = "date";
-        private string[] COLUMNS = new string[] { KEY_ID, KEY_TYPE, KEY_CHARACTER, KEY_DATE };
+        private string[] COLUMNS = new string[] { KEY_ID, KEY_TYPE, KEY_GENDER, KEY_HAIR, KEY_SKIN, KEY_EYES, KEY_OUTFIT, KEY_DATE };
 
         public CharacterDB() : base()
         {
@@ -20,7 +32,11 @@ namespace DataBank
             dbcmd.CommandText = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " ( " +
                 KEY_ID + " TEXT PRIMARY KEY, " +
                 KEY_TYPE + " TEXT, " +
-                KEY_CHARACTER + " TEXT, " +
+                KEY_GENDER + " TEXT, " +
+                KEY_HAIR + " TEXT, " +
+                KEY_SKIN + " TEXT, " +
+                KEY_EYES + " TEXT, " +
+                KEY_OUTFIT + " TEXT, " +
                 KEY_DATE + " DATETIME DEFAULT CURRENT_TIMESTAMP )";
             dbcmd.ExecuteNonQuery();
         }
@@ -33,12 +49,20 @@ namespace DataBank
                 + " ( "
                 + KEY_ID + ", "
                 + KEY_TYPE + ", "
-                + KEY_CHARACTER + " ) "
+                + KEY_GENDER + ", "
+                + KEY_HAIR + ", "
+                + KEY_SKIN + ", "
+                + KEY_EYES + ", "
+                + KEY_OUTFIT + " ) "
 
                 + "VALUES ( '"
                 + data._id + "', '"
                 + data._type + "', '"
-                + data._character + "' )";
+                + data._gender + "', '"
+                + data._hair + "', '"
+                + data._skin + "', '"
+                + data._eyes + "', '"
+                + data._outfit + "' )";
             dbcmd.ExecuteNonQuery();
         }
 
