@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
     private string farColor;
 
     //private GameObject person;
+    //Hannah
+    public GameObject character;
 
 
     private bool planeSelected = false;
@@ -88,6 +90,43 @@ public class GameManager : MonoBehaviour
             Debug.Log("Character Data: " + myList[0]._type + myList[0]._gender.ToString() + myList[0]._hair + myList[0]._skin + myList[0]._eyes + myList[0]._outfit);
 
             person.SetActive(false);
+
+            //check if female or male character was chosen
+            if(myList[0]._gender.ToString() == 0.ToString())
+            {
+                //Activate female character
+                CharacterCustomization.Instance.female.SetActive(true);
+                Debug.Log("Female character was chosen: " + myList[0]._gender);
+
+                //Get characters sprite components
+                SpriteRenderer[] charactersAttributes = CharacterCustomization.Instance.female.GetComponentsInChildren<SpriteRenderer>();
+
+                //Add user's style choices
+                charactersAttributes[0].sprite = CharacterCustomization.Instance.femaleOutfit[int.Parse(myList[0]._outfit)];
+                charactersAttributes[2].sprite = CharacterCustomization.Instance.femaleLongHair[int.Parse(myList[0]._hair)];
+                charactersAttributes[3].sprite = CharacterCustomization.Instance.femaleEyes[int.Parse(myList[0]._eyes)];
+                charactersAttributes[4].sprite = CharacterCustomization.Instance.femaleSkinColor[int.Parse(myList[0]._skin)];
+                charactersAttributes[5].sprite = CharacterCustomization.Instance.femaleHandColor[int.Parse(myList[0]._skin)];
+
+                Debug.Log("Hair Value: " + myList[0]._hair);
+            }
+            else if(myList[0]._gender.ToString() == 1.ToString())
+            {
+                //Activate male character
+                CharacterCustomization.Instance.male.SetActive(true);
+                Debug.Log("Male character was chosen: " + myList[0]._gender);
+
+                //Get characters SpriteRenderer components
+                SpriteRenderer[] charactersAttributes = CharacterCustomization.Instance.male.GetComponentsInChildren<SpriteRenderer>();
+
+                //Add user's style choices
+                charactersAttributes[0].sprite = CharacterCustomization.Instance.maleOutfit[int.Parse(myList[0]._outfit)];
+                charactersAttributes[2].sprite = CharacterCustomization.Instance.maleHair[int.Parse(myList[0]._hair)];
+                charactersAttributes[3].sprite = CharacterCustomization.Instance.maleEyes[int.Parse(myList[0]._eyes)];
+                charactersAttributes[4].sprite = CharacterCustomization.Instance.maleSkinColor[int.Parse(myList[0]._skin)];
+            }
+
+            //Sprite characterModel = CharacterCustomization.Instance.female.GetComponentInChildren<Sprite>();
         }
         catch
         {
