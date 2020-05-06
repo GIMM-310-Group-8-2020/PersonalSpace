@@ -254,13 +254,24 @@ public class MenuManager : MonoBehaviour
 
     public void SaveCharacter()
     {
-        GameObject character = new GameObject();
-        /*if (DropdownMenu.Instance.genVal == 0)
+        //GameObject character = new GameObject();
+
+        string hairVal, skinVal, eyeVal, outfitVal;
+
+
+        if (DropdownMenu.Instance.genVal == 0)
         {
             try
             {
-                character = GameObject.Find("Canvas/FemaleCharacter");
+                //character = GameObject.Find("Canvas/FemaleCharacter");
+
+                hairVal = CharacterCustomization.Instance.hairString;
+                skinVal = CharacterCustomization.Instance.skinString;
+                eyeVal = CharacterCustomization.Instance.eyeString;
+                outfitVal = CharacterCustomization.Instance.outfitString;
+
                 Debug.Log("Female Character successfully found");
+                Debug.Log(DropdownMenu.Instance.typeVal + hairVal + skinVal + eyeVal + outfitVal);
             }
             catch
             {
@@ -271,22 +282,33 @@ public class MenuManager : MonoBehaviour
         {
             try
             {
-                character = GameObject.Find("Canvas/MaleCharacter");
+                //character = GameObject.Find("Canvas/MaleCharacter");
+
+                hairVal = CharacterCustomization.Instance.hairString;
+                skinVal = CharacterCustomization.Instance.skinString;
+                eyeVal = CharacterCustomization.Instance.eyeString;
+                outfitVal = CharacterCustomization.Instance.outfitString;
+
                 Debug.Log("Male Character successfully found");
+                Debug.Log(DropdownMenu.Instance.typeVal + hairVal + skinVal + eyeVal + outfitVal);
             }
             catch
             {
                 Debug.Log("Male Character not found");
             }
 
-        }*/
-        character = GameObject.Find("TestObject");
-        CharacterDB mCharacterDB = new CharacterDB();
-        //mCharacterDB.deleteAllData();
-        mCharacterDB.addData(new CharacterData("0", DropdownMenu.Instance.typeVal, character));
-        mCharacterDB.close();
+        }
+        //character = GameObject.Find("TestObject");
 
-        NextScene("ARSection");
+        CharacterDB mCharacterDB = new CharacterDB();
+        mCharacterDB.deleteAllData();
+        mCharacterDB.addData(new CharacterData("0", DropdownMenu.Instance.typeVal, character));
+
+        
+
+        //mCharacterDB.close();
+
+        //NextScene("ARSection");
     }
 
     /*public void NextScene()
