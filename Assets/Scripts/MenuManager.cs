@@ -9,11 +9,13 @@ public class MenuManager : MonoBehaviour
 {
     public static MenuManager Instance;
 
-    public RawImage targetPicture;
+    //public RawImage targetPicture;
     public RawImage backgroundImage;
     public RawImage[] dropDownMenus;
 
     public float dropdownSpeed = 1f;
+
+    public string typeVal;
 
     private Transform backgroundPos;
     private int characterTypeVal;
@@ -46,7 +48,7 @@ public class MenuManager : MonoBehaviour
 					return;
 				}
 
-				targetPicture.texture = texture;
+				//targetPicture.texture = texture;
 			}
 		}, "Select a PNG image", "image/png");
 
@@ -213,13 +215,21 @@ public class MenuManager : MonoBehaviour
         //so it can be accessed anywhere
         characterTypeVal = val;
 
-        if(val == 0)
+        if (val == 0)
         {
-            Debug.Log("Character type: Family");
+            typeVal = "close";
         }
-        else if(val == 1)
+        else if (val == 1)
         {
-            Debug.Log("Character type: Friend");
+            typeVal = "near";
+        }
+        else if (val == 2)
+        {
+            typeVal = "far";
+        }
+        else
+        {
+            Debug.Log("ISSUE PICKING TYPE");
         }
     }
 
@@ -298,7 +308,7 @@ public class MenuManager : MonoBehaviour
 
                 CharacterDB mCharacterDB = new CharacterDB();
                 //mCharacterDB.deleteAllData();
-                mCharacterDB.addData(new CharacterData("0", DropdownMenu.Instance.typeVal, DropdownMenu.Instance.genVal, hairVal, skinVal, eyeVal, outfitVal));
+                mCharacterDB.addData(new CharacterData("0", typeVal, DropdownMenu.Instance.genVal, hairVal, skinVal, eyeVal, outfitVal));
                 mCharacterDB.close();
             }
             catch
