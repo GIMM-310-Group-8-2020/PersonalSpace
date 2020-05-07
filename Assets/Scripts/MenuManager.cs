@@ -13,12 +13,20 @@ public class MenuManager : MonoBehaviour
     public RawImage backgroundImage;
     public RawImage[] dropDownMenus;
 
+    public GameObject sceneCheck;
+
     public float dropdownSpeed = 1f;
 
     public string typeVal;
 
     private Transform backgroundPos;
     private int characterTypeVal;
+
+    //character values
+    public string hairVal = "";
+    public string skinVal = "";
+    public string eyeVal = "";
+    public string outfitVal = "";
 
 
     private void Start()
@@ -262,23 +270,38 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    public void CloseCheck()
+    {
+        sceneCheck.gameObject.SetActive(false);
+    }
+
+    public void SceneCheck()
+    {
+        //Debug.Log("Performing Scene Check like a bouncer");
+
+        if (hairVal == "" || skinVal == "" || outfitVal == "" || eyeVal == "")
+        {
+            Debug.Log("Please select a style for each character attribute.");
+            sceneCheck.gameObject.SetActive(true);
+
+            //SceneManager.LoadScene("ARSection");
+        }
+        else if (hairVal != "" && skinVal != "" && outfitVal != "" && eyeVal != "")
+        {
+            Debug.Log("Attempting load AR");
+            SaveCharacter();
+        }
+    }
+
     public void SaveCharacter()
     {
         //GameObject character = new GameObject();
-
-        string hairVal, skinVal, eyeVal, outfitVal;
-
 
         if (DropdownMenu.Instance.genVal == 0)
         {
             try
             {
                 //character = GameObject.Find("Canvas/FemaleCharacter");
-
-                hairVal = CharacterCustomization.Instance.hairString;
-                skinVal = CharacterCustomization.Instance.skinString;
-                eyeVal = CharacterCustomization.Instance.eyeString;
-                outfitVal = CharacterCustomization.Instance.outfitString;
 
                 Debug.Log("Female Character successfully found");
                 //Debug.Log(DropdownMenu.Instance.typeVal + hairVal + skinVal + eyeVal + outfitVal);
@@ -298,10 +321,6 @@ public class MenuManager : MonoBehaviour
             try
             {
                 //character = GameObject.Find("Canvas/MaleCharacter");
-                hairVal = CharacterCustomization.Instance.hairString;
-                skinVal = CharacterCustomization.Instance.skinString;
-                eyeVal = CharacterCustomization.Instance.eyeString;
-                outfitVal = CharacterCustomization.Instance.outfitString;
 
                 Debug.Log("Male Character successfully found");
                 //Debug.Log(DropdownMenu.Instance.typeVal + hairVal + skinVal + eyeVal + outfitVal);
