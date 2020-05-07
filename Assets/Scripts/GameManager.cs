@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     public Text panelButtonText;
     //public GameObject test;
 
+    private Vector3 targetPostition;
+
 
     private List<Material> mats;
 
@@ -48,6 +50,7 @@ public class GameManager : MonoBehaviour
         SetUpPerson();
         mats = Resources.LoadAll<Material>("ColorMaterials/").ToList();
         //goalDist = "close";
+        
     }
 
     void Update()
@@ -66,6 +69,11 @@ public class GameManager : MonoBehaviour
         if (planeSelected)
         {
             center.transform.position = new Vector3(firstPersonCamera.transform.position.x, person.transform.position.y, firstPersonCamera.transform.position.z);
+            targetPostition = new Vector3(firstPersonCamera.transform.position.x,
+                                       character.transform.position.y,
+                                       firstPersonCamera.transform.position.z);
+            character.transform.LookAt(targetPostition);
+            Debug.Log(targetPostition.ToString());
             //test.transform.position = person.transform.position;
             CalculateDistance();
         }
@@ -186,6 +194,8 @@ public class GameManager : MonoBehaviour
         //personController.SetSelectedPlane(selectedPlane);
         person.transform.position = new Vector3(selectedPlane.CenterPose.position.x, selectedPlane.CenterPose.position.y, selectedPlane.CenterPose.position.z);
         character.transform.position = new Vector3(selectedPlane.CenterPose.position.x, selectedPlane.CenterPose.position.y, selectedPlane.CenterPose.position.z);
+        
+        
         CenterSetUp();
         planeSelected = true;
     }
