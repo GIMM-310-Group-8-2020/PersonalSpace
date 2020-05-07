@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject verificationScreen;
     public Text panelText;
     public Text panelButtonText;
+    //public GameObject test;
 
 
     private List<Material> mats;
@@ -42,6 +43,7 @@ public class GameManager : MonoBehaviour
     {
         QuitOnConnectionErrors();
         center.SetActive(false);
+        character.SetActive(false);
         //person.SetActive(false);
         SetUpPerson();
         mats = Resources.LoadAll<Material>("ColorMaterials/").ToList();
@@ -62,7 +64,8 @@ public class GameManager : MonoBehaviour
         
         if (planeSelected)
         {
-            center.transform.position = new Vector3(firstPersonCamera.transform.position.x, person.transform.position.y - 1, firstPersonCamera.transform.position.z);
+            center.transform.position = new Vector3(firstPersonCamera.transform.position.x, person.transform.position.y, firstPersonCamera.transform.position.z);
+            //test.transform.position = person.transform.position;
             CalculateDistance();
         }
         
@@ -132,7 +135,7 @@ public class GameManager : MonoBehaviour
             mainText.text = "CHARACTER NOT LOADED";
         }
 
-        person.SetActive(false);
+        //person.SetActive(false);
     }
 
     void QuitOnConnectionErrors()
@@ -173,8 +176,11 @@ public class GameManager : MonoBehaviour
     void SetSelectedPlane(DetectedPlane selectedPlane)
     {
         Debug.Log("Selected plane centered at " + selectedPlane.CenterPose.position);
-        person.SetActive(true);
-        personController.SetSelectedPlane(selectedPlane);
+        character.SetActive(true);
+        //person.SetActive(true);
+        //personController.SetSelectedPlane(selectedPlane);
+        person.transform.position = new Vector3(selectedPlane.CenterPose.position.x, selectedPlane.CenterPose.position.y, selectedPlane.CenterPose.position.z);
+        character.transform.position = new Vector3(selectedPlane.CenterPose.position.x, selectedPlane.CenterPose.position.y, selectedPlane.CenterPose.position.z);
         CenterSetUp();
         planeSelected = true;
     }
@@ -275,7 +281,7 @@ public class GameManager : MonoBehaviour
 
     void CalculateDistance()
     {
-        float dist = Vector3.Distance(new Vector3(person.transform.position.x, person.transform.position.y - 1, person.transform.position.z), center.transform.position); ;
+        float dist = Vector3.Distance(person.transform.position, center.transform.position); 
         
         if (dist < 0.5)
         {
@@ -301,7 +307,7 @@ public class GameManager : MonoBehaviour
 
     public void Action()
     {
-        float dist = Vector3.Distance(new Vector3(person.transform.position.x, person.transform.position.y - 1, person.transform.position.z), center.transform.position); ;
+        float dist = Vector3.Distance(person.transform.position, center.transform.position); 
         verificationScreen.SetActive(true);
         if (goalDist == "close")
         {
