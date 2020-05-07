@@ -13,11 +13,12 @@ public class DropdownMenu : MonoBehaviour
     public GameObject male;
 
     public int genVal = 0;
-    public string typeVal = "far";
+    public string typeVal ;
 
     private void Start()
     {
         Instance = this;
+        typeVal = "close";
     }
 
     //function to handle input from the gender picker drop down menu

@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/CharacterCustomization.unity
+- path: Assets/Scenes/ARSection.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

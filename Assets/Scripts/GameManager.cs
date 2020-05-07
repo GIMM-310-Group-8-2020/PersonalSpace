@@ -60,13 +60,18 @@ public class GameManager : MonoBehaviour
             return;
         }
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
-        ProcessTouches();
+
+        
         
         if (planeSelected)
         {
             center.transform.position = new Vector3(firstPersonCamera.transform.position.x, person.transform.position.y, firstPersonCamera.transform.position.z);
             //test.transform.position = person.transform.position;
             CalculateDistance();
+        }
+        else
+        {
+            ProcessTouches();
         }
         
     }
