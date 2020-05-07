@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
                 charactersAttributes[4].sprite = CharacterCustomization.Instance.femaleSkinColor[int.Parse(myList[0]._skin)];
                 charactersAttributes[5].sprite = CharacterCustomization.Instance.femaleHandColor[int.Parse(myList[0]._skin)];
 
-                Debug.Log("Hair Value: " + myList[0]._hair);
+                Debug.Log("Hair Value: " + myList[0]._hair + ", Skin Value: " + myList[0]._skin + ", Eye Value: " + myList[0]._eyes + ", Outfit Value: " + myList[0]._outfit);
             }
             else if(myList[0]._gender.ToString() == 1.ToString())
             {
@@ -125,6 +125,8 @@ public class GameManager : MonoBehaviour
                 charactersAttributes[2].sprite = CharacterCustomization.Instance.maleHair[int.Parse(myList[0]._hair)];
                 charactersAttributes[3].sprite = CharacterCustomization.Instance.maleEyes[int.Parse(myList[0]._eyes)];
                 charactersAttributes[4].sprite = CharacterCustomization.Instance.maleSkinColor[int.Parse(myList[0]._skin)];
+
+                Debug.Log("Hair Value: " + myList[0]._hair + ", Skin Value: " + myList[0]._skin + ", Eye Value: " + myList[0]._eyes + ", Outfit Value: " + myList[0]._outfit);
             }
 
             //Sprite characterModel = CharacterCustomization.Instance.female.GetComponentInChildren<Sprite>();

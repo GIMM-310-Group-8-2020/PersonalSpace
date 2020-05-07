@@ -20,6 +20,12 @@ public class MenuManager : MonoBehaviour
     private Transform backgroundPos;
     private int characterTypeVal;
 
+    //character values
+    public string hairVal = "";
+    public string skinVal = "";
+    public string eyeVal = "";
+    public string outfitVal = "";
+
 
     private void Start()
     {
@@ -31,6 +37,8 @@ public class MenuManager : MonoBehaviour
         CharacterDB mCharacterDB = new CharacterDB();
         mCharacterDB.deleteAllData();
         mCharacterDB.close();
+
+        //Debug.Log("Beginning values: " + hairVal + skinVal + eyeVal + outfitVal);
     }
 
     public void GetPicture()
@@ -262,11 +270,29 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+
+    public void SceneCheck()
+    {
+        //Debug.Log("Performing Scene Check like a bouncer");
+
+        if (hairVal == "" || skinVal == "" || outfitVal == "" || eyeVal == "")
+        {
+            Debug.Log("Please select a style for each character attribute.");
+
+            //SceneManager.LoadScene("ARSection");
+        }
+        else if (hairVal != "" && skinVal != "" && outfitVal != "" && eyeVal != "")
+        {
+            Debug.Log("Attempting load AR");
+            SaveCharacter();
+        }
+    }
+
     public void SaveCharacter()
     {
-        //GameObject character = new GameObject();
+        Debug.Log("Attempting to save character");
 
-        string hairVal, skinVal, eyeVal, outfitVal;
+        //GameObject character = new GameObject();
 
 
         if (DropdownMenu.Instance.genVal == 0)
@@ -274,11 +300,6 @@ public class MenuManager : MonoBehaviour
             try
             {
                 //character = GameObject.Find("Canvas/FemaleCharacter");
-
-                hairVal = CharacterCustomization.Instance.hairString;
-                skinVal = CharacterCustomization.Instance.skinString;
-                eyeVal = CharacterCustomization.Instance.eyeString;
-                outfitVal = CharacterCustomization.Instance.outfitString;
 
                 Debug.Log("Female Character successfully found");
                 //Debug.Log(DropdownMenu.Instance.typeVal + hairVal + skinVal + eyeVal + outfitVal);
@@ -298,10 +319,10 @@ public class MenuManager : MonoBehaviour
             try
             {
                 //character = GameObject.Find("Canvas/MaleCharacter");
-                hairVal = CharacterCustomization.Instance.hairString;
-                skinVal = CharacterCustomization.Instance.skinString;
-                eyeVal = CharacterCustomization.Instance.eyeString;
-                outfitVal = CharacterCustomization.Instance.outfitString;
+               // hairVal = CharacterCustomization.Instance.hairString;
+               // skinVal = CharacterCustomization.Instance.skinString;
+               // eyeVal = CharacterCustomization.Instance.eyeString;
+               // outfitVal = CharacterCustomization.Instance.outfitString;
 
                 Debug.Log("Male Character successfully found");
                 //Debug.Log(DropdownMenu.Instance.typeVal + hairVal + skinVal + eyeVal + outfitVal);
@@ -318,8 +339,9 @@ public class MenuManager : MonoBehaviour
 
         }
 
-
+        //SceneCheck();
         SceneManager.LoadScene("ARSection");
     }
     
+
 }

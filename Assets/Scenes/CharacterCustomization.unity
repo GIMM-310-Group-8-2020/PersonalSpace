@@ -6534,6 +6534,10 @@ MonoBehaviour:
   - {fileID: 2103487173}
   dropdownSpeed: 0.5
   typeVal: 
+  hairVal: 
+  skinVal: 
+  eyeVal: 
+  outfitVal: 
 --- !u!4 &1307458568
 Transform:
   m_ObjectHideFlags: 0
@@ -7257,7 +7261,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1307458567}
-        m_MethodName: SaveCharacter
+        m_MethodName: SceneCheck
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
