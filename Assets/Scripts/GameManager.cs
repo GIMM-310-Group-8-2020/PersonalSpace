@@ -32,7 +32,6 @@ public class GameManager : MonoBehaviour
     private string nearColor;
     private string farColor;
 
-    //private GameObject person;
     //Hannah
     public GameObject character;
 
@@ -63,7 +62,7 @@ public class GameManager : MonoBehaviour
         
         if (planeSelected)
         {
-            center.transform.position = new Vector3(firstPersonCamera.transform.position.x, person.transform.position.y, firstPersonCamera.transform.position.z);
+            center.transform.position = new Vector3(firstPersonCamera.transform.position.x, person.transform.position.y - 1, firstPersonCamera.transform.position.z);
             CalculateDistance();
         }
         
@@ -71,8 +70,7 @@ public class GameManager : MonoBehaviour
 
     void SetUpPerson()
     {
-        try
-        {
+        
             CharacterDB mCharacterDB = new CharacterDB();
             //CharacterData characterData;
             System.Data.IDataReader reader = mCharacterDB.getAllData();
@@ -89,10 +87,10 @@ public class GameManager : MonoBehaviour
 
             Debug.Log("Character Data: " + myList[0]._type + myList[0]._gender.ToString() + myList[0]._hair + myList[0]._skin + myList[0]._eyes + myList[0]._outfit);
 
-            person.SetActive(false);
-
+        try
+        {
             //check if female or male character was chosen
-            if(myList[0]._gender.ToString() == 0.ToString())
+            if (myList[0]._gender.ToString() == 0.ToString())
             {
                 //Activate female character
                 CharacterCustomization.Instance.female.SetActive(true);
@@ -133,7 +131,8 @@ public class GameManager : MonoBehaviour
             Debug.Log("CHARACTER NOT LOADED");
             mainText.text = "CHARACTER NOT LOADED";
         }
-        
+
+        person.SetActive(false);
     }
 
     void QuitOnConnectionErrors()
@@ -174,10 +173,9 @@ public class GameManager : MonoBehaviour
     void SetSelectedPlane(DetectedPlane selectedPlane)
     {
         Debug.Log("Selected plane centered at " + selectedPlane.CenterPose.position);
+        person.SetActive(true);
         personController.SetSelectedPlane(selectedPlane);
         CenterSetUp();
-        person.transform.localScale = new Vector3(0.001f, 0.001f, 0.001f);
-        person.SetActive(true);
         planeSelected = true;
     }
 
@@ -277,7 +275,8 @@ public class GameManager : MonoBehaviour
 
     void CalculateDistance()
     {
-        float dist = Vector3.Distance(person.transform.position, center.transform.position);
+        float dist = Vector3.Distance(new Vector3(person.transform.position.x, person.transform.position.y - 1, person.transform.position.z), center.transform.position); ;
+        
         if (dist < 0.5)
         {
             mainText.text = "Close";
@@ -302,7 +301,7 @@ public class GameManager : MonoBehaviour
 
     public void Action()
     {
-        float dist = Vector3.Distance(person.transform.position, center.transform.position);
+        float dist = Vector3.Distance(new Vector3(person.transform.position.x, person.transform.position.y - 1, person.transform.position.z), center.transform.position); ;
         verificationScreen.SetActive(true);
         if (goalDist == "close")
         {
