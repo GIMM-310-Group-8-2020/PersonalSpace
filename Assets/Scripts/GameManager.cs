@@ -176,6 +176,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Selected plane centered at " + selectedPlane.CenterPose.position);
         personController.SetSelectedPlane(selectedPlane);
         CenterSetUp();
+        person.transform.localScale = new Vector3(0.001f, 0.001f, 0.001f);
         person.SetActive(true);
         planeSelected = true;
     }
