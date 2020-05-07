@@ -59,14 +59,17 @@ public class DropdownMenu : MonoBehaviour
         if (value == 0)
         {
             typeVal = "close";
+            Debug.Log(typeVal);
         }
         else if (value == 1)
         {
             typeVal = "near";
+            Debug.Log(typeVal);
         }
         else if (value == 2)
         {
             typeVal = "far";
+            Debug.Log(typeVal);
         }
         else
         {
