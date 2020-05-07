@@ -6,6 +6,7 @@ TagManager:
   tags:
   - food
   - Food
+  - ManipulationSystem
   layers:
   - Default
   - TransparentFX
@@ -42,4 +43,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Clothes
+    uniqueID: 3395544443
+    locked: 0
+  - name: Character
+    uniqueID: 2835574477
     locked: 0

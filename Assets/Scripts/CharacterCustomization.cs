@@ -39,6 +39,10 @@ public class CharacterCustomization : MonoBehaviour
     public string eyeString;
     public string outfitString;
 
+    //to hold characters in ARSection
+    public GameObject female;
+    public GameObject male;
+
 
     private void Start()
     {
